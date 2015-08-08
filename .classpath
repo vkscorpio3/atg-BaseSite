@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/MyDomain/common/WebServices/gen-src"/>
+	<classpathentry kind="src" path="src/MyDomain/common/WebServices/src"/>
+	<classpathentry kind="src" path="src/MyDomain/common/WebServices/gen-test-src"/>
+	<classpathentry kind="src" path="src/MyDomain/MyAccount/src"/>
+	<classpathentry kind="src" path="src/MyDomain/common/WebServices/dto/gen-src"/>
+	<classpathentry kind="src" path="src/MyDomain/common/WebServices/gen-src-override"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/ATG"/>
+	<classpathentry kind="lib" path="lib/jdbc/ojdbc6.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Axis2"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/prepend/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="lib/prepend/jackson-datatype-json-org-1.8.0.jar"/>
+	<classpathentry kind="lib" path="lib/prepend/jackson-annotations-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/prepend/jackson-core-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/prepend/jackson-databind-2.6.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

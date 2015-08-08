@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+ATG-Config-Path: config/
+ATG-Class-Path: lib/classes.jar lib/prepend/guava-18.0.jar lib/prepend/jackson
+ -annotations-2.6.0.jar lib/prepend/jackson-core-2.6.0.jar lib/prepend/jackson
+ -databind-2.6.0.jar lib/prepend/jackson-datatype-json-org-1.8.0.jar pkgdep/ax
+ is2-1.6.2/lib/axis2-kernel-1.6.2.jar pkgdep/axis2-1.6.2/lib/httpcore-4.0.jar
+ATG-Required: MyDomain
+ATG-Client-Update-Path: true

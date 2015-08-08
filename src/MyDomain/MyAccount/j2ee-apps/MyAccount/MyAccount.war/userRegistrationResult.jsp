@@ -1,0 +1,1 @@
+Display user successful registration message

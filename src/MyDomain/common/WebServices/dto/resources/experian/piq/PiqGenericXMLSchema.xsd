@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.experianinteractive.com/els/ELSGenericXMLSchema"
+	targetNamespace="http://www.experianinteractive.com/els/ELSGenericXMLSchema">
+	<!-- Start of data types coming in as request -->
+	<complexType name="CustomerInfoType">
+		<sequence>
+			<!-- Following fields need to be added new to ELS -->
+			<element name="PARTNER_ID" type="string" minOccurs="0" />
+			<element name="CLIENT_ID" type="string" />
+			<element name="CUST_REF_NO" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="LeadTransDetailsType">
+		<sequence>
+			<!-- The following fields are present in ELS -->
+			<element name="PREFIX" type="string" minOccurs="0" />
+			<element name="FIRST_NAME" type="string" minOccurs="0" />
+			<element name="LAST_NAME" type="string" minOccurs="0" />
+			<element name="SUFFIX" type="string" minOccurs="0" />
+			<element name="MIDDLE_NAME" type="string" minOccurs="0" />
+			<element name="FULL_NAME" type="string" minOccurs="0" />
+			<element name="BUSINESS_NAME" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="NameParserType">
+		<sequence>
+			<!-- The following fields are present in ELS -->
+			<!-- as per UopToGeneric.xsl,CUSAToGeneric.xsl etc -->
+			<element name="PREFIX_CD" type="string" minOccurs="0" />
+			<element name="FIRST_NAME" type="string" minOccurs="0" />
+			<element name="MIDDLE_NAME" type="string" minOccurs="0" />
+			<element name="LAST_NAME" type="string" minOccurs="0" />
+			<element name="SUFFIX_CD" type="string" minOccurs="0" />
+			<element name="NAME_ERROR_STATUS" type="string" minOccurs="0" />
+			<element name="GENDER_CD" type="string" minOccurs="0" />
+			<element name="BUSINESS_NAME_IND" type="string" minOccurs="0" />
+			<element name="BUSINESS_NAME" type="string" minOccurs="0" />
+			<element name="BUSINESS_TITLE" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="AddressType">
+		<sequence>
+			<!-- The following fields are present in ELS -->
+			<!-- as per UopToGeneric.xsl,CUSAToGeneric.xsl etc -->
+			<element name="ADDRESS_TYPE" type="string" minOccurs="0" />
+			<element name="STREET1" type="string" minOccurs="0" />
+			<element name="STREET2" type="string" minOccurs="0" />
+			<element name="CITY" type="string" minOccurs="0" />
+			<element name="STATE" type="string" minOccurs="0" />
+			<element name="ZIP" type="string" minOccurs="0" />
+			<element name="ZIPPLUS" type="string" minOccurs="0" />
+			<element name="COUNTY" type="string" minOccurs="0" />
+			<element name="COUNTRY" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="LeadPhoneType">
+		<sequence>
+			<!-- The following fields are present in ELS -->
+			<!-- as per UopToGeneric.xsl,CUSAToGeneric.xsl etc -->
+			<element name="PHONE_TYPE" type="string" minOccurs="0" />
+			<element name="PHONE_NUMBER" type="string" />
+			<element name="PHONE_EXTENSION" type="string" minOccurs="0" />
+			<element name="PHONE_COUNTRY_CODE" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="LeadEmailType">
+		<sequence>
+			<!-- The following fields are present in ELS -->
+			<!-- as per UopToGeneric.xsl,CUSAToGeneric.xsl etc -->
+			<element name="EMAIL_TYPE" type="string" minOccurs="0" />
+			<element name="LEAD_EMAIL_ADDRESS" type="string" />
+		</sequence>
+	</complexType>
+	<complexType name="LeadInfoDetailType">
+		<sequence>
+			<!-- The following fields are present in ELS -->
+			<!-- as per UopToGeneric.xsl,CUSAToGeneric.xsl etc -->
+			<element name="ATTRIBUTE_NAME" type="string" />
+			<element name="ATTRIBUTE_VALUE" type="string" />
+		</sequence>
+	</complexType>
+	<!-- End of data types coming in as request -->
+	<!-- Start of Standardized Address data type. -->
+	<!-- Will be filled in Stage1 for RTM -->
+	<!-- ELS can fill it in any of the 3 stages - Stage 1, 2, or 3 -->
+	<complexType name="StdAddressType">
+		<sequence>
+			<!-- The following fields need to be added to support RTM requirements -->
+			<!-- per RTM API guide -->
+			<!-- For RTM, will be retrieved using FirstLogic/ACE data -->
+
+			<!-- Equivalent ACE field is ACE_ADDRESS -->
+			<element name="FULL_ADDRESS" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_PRIM_ADDR -->
+			<element name="STREET1" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_SEC_ADDR -->
+			<element name="STREET2" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_PRIM_RANGE -->
+			<element name="PRIM_RANGE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_SEC_RANGE -->
+			<element name="SEC_RANGE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_PRIM_NAME -->
+			<element name="PRIM_NAME" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_PREDIR -->
+			<element name="PREDIR" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_CITY -->
+			<element name="CITY" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_STATE -->
+			<element name="STATE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_ZIP -->
+			<element name="ZIP" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_ZIP4 -->
+			<element name="ZIPPLUS" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_POB_NUM -->
+			<element name="PO_BOX_NUM" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_RR_BOX_NUM -->
+			<element name="RR_BOX_NUM" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_RR_NUM -->
+			<element name="RR_NUM" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_POSTDIR -->
+			<element name="POSTDIR" type="string" minOccurs="0" />
+			<!-- Equivalent ACE field is ACE_SUFFIX -->
+			<element name="SUFFIX" type="string" minOccurs="0" />
+			<!-- Equivalent ACE field is ACE_UNIT_DESIG -->
+			<element name="UNIT_DESIG" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_CART -->
+			<element name="CARRIER_ROUTE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_CGEO_MSA -->
+			<element name="GEO_MSA" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_CGEO_LNG -->
+			<element name="GEO_LNG" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_CGEO_LAT -->
+			<element name="GEO_LAT" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_CGEO_BLK -->
+			<element name="GEO_BLK" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_DPBC -->
+			<element name="DPBC" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_CHECKDIGIT -->
+			<element name="CHECKDIGIT" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_REC_TYPE -->
+			<element name="ADDRESS_TYPE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_COUNTYNAME -->
+			<element name="COUNTY" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_COUNTY -->
+			<element name="COUNTY_CODE" type="string" minOccurs="0" />
+
+			<!-- Hardcoded to US; Needed to comply with current ELS generic -->
+			<element name="COUNTRY" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_FIPSCODE -->
+			<element name="FIPSCODE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_ERR_STAT -->
+			<element name="ADDRESS_ERROR_STATUS" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_STAT_CODE -->
+			<element name="ADDRESS_CODE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_FIRMLINE -->
+			<element name="FIRMLINE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_GEO_MATCH -->
+			<element name="GEOMATCH" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_MATCH_5 -->
+			<element name="MATCHZIPFIVE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_MATCH_9 -->
+			<element name="MATCHZIPNINE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_ZIPTYPE -->
+			<element name="ZIPTYPE" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_MATCH_UN -->
+			<element name="SUITABLEFORDELIVERY" type="string" minOccurs="0" />
+
+			<!-- Equivalent ACE field is ACE_LACSCODE -->
+			<element name="LACSCODE" type="string" minOccurs="0" />
+
+		</sequence>
+	</complexType>
+	<!-- End of Standardized Address data type. -->
+	<!-- Start of Stage1 types -->
+	<complexType name="ReverseAppendType">
+		<sequence>
+			<!-- The following fields need to be added to support RTM requirements -->
+			<!-- per RTM API guide -->
+			<!-- These will be retrieved in Stage2 as using NameSearch/InSource data -->
+			<element name="EXECUTION_STATUS_FLAG" type="string" />
+			<element name="FIRST_NAME" type="string" minOccurs="0" />
+			<element name="LAST_NAME" type="string" minOccurs="0" />
+			<element name="ADDRESS" type="tns:AddressType" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<complexType name="PhoneVerificationType">
+		<sequence>
+			<!-- The following fields need to be added to support RTM requirements -->
+			<!-- per RTM API guide -->
+			<element name="PHONE_NUMBER" type="string" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="PHONE_STATUS" type="string" minOccurs="0" />
+			<element name="PHONE_OBJECTOR" type="string" minOccurs="0" />
+			<!-- element name="REVERSE_PHONE_APPEND" type="tns:ReverseAppendType" 
+				minOccurs="0"/ -->
+		</sequence>
+	</complexType>
+	<complexType name="EmailVerificationType">
+		<sequence>
+			<element name="EMAIL_ADDRESS" type="string" minOccurs="0" />
+			<element name="EMAIL_STATUS_CODE" type="string" minOccurs="0" />
+			<element name="EMAIL_STATUS_DESC" type="string" minOccurs="0" />
+			<element name="EMAIL_PROBABLE_SPAMTRAP" type="string"
+				minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<!-- added for EnhancedRTM -->
+	<complexType name="EnhancedPhoneVerificationType">
+		<sequence>
+			<element name="PHONE_TYPE" type="string" minOccurs="0" />
+			<element name="PHONE_NUMBER" type="string" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="PHONE_STATUS" type="string" minOccurs="0" />
+			<element name="PHONE_DESC" type="string" minOccurs="0" />
+			<element name="PHONE_OBJECTOR" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="SearchParamType">
+		<sequence>
+			<element name="ADV_958" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="Stage1DataType">
+		<sequence>
+			<element name="PHONE_NUMBER" type="string" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="PHONE" type="tns:EnhancedPhoneVerificationType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<!--element name="REVERSE_PHONE_APPEND" type="tns:ReverseAppendType" minOccurs="0"/ -->
+			<element name="EMAIL" type="tns:EmailVerificationType"
+				minOccurs="0" maxOccurs="unbounded" />
+			<element name="SCORE_RESULT" type="string" minOccurs="0" />
+			<element name="SCORE_DESC" type="string" minOccurs="0" />
+			<element name="PHONE_STATUS" type="string" minOccurs="0" />
+			<element name="PHONE_DESC" type="string" minOccurs="0" />
+			<element name="PHONE_OBJECTOR" type="string" minOccurs="0" />
+			<element name="ELSResidentialAddressVerificationResult" type="string"
+				minOccurs="0" />
+			<element name="ELSResidentialAddressHighRisk" type="string"
+				minOccurs="0" />
+			<element name="ELSResidentialPhoneVerificationResult" type="string"
+				minOccurs="0" />
+			<element name="ELSResidentialPhoneHighRisk" type="string"
+				minOccurs="0" />
+			<element name="ELSResidentialPhoneAppend" type="string"
+				minOccurs="0" />
+			<element name="ELSBusinessPhoneAppend" type="string"
+				minOccurs="0" />
+			<element name="REVERSE_PHONE_APPEND" type="tns:ReverseAppendType"
+				minOccurs="0" />
+			<element name="CRM" type="tns:SearchParamType" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="BUSINESS_ADDRESS" type="string" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+	<!-- End of Stage1 types -->
+	<!-- Start of Stage2 types -->
+	<complexType name="PersonLevelDataType">
+		<sequence>
+			<!-- THESE SHOULD BE STAYED ON THE TOP -->
+			<element name="PERBIRTHDATE" type="string" minOccurs="0" />
+			<!-- ***************************************************** -->
+
+			<!-- The following exist in ELS - as per Stage2DBToXMLMapping.xsl -->
+			<element name="PERCOMBINEDAGE" type="string" minOccurs="0" />
+			<element name="PERGENDER" type="string" minOccurs="0" />
+			<element name="PERMARITALSTATUS" type="string" minOccurs="0" />
+			<element name="PERBUSINESSOWNER" type="string" minOccurs="0" />
+			<element name="EDUCATION_LEVEL" type="string" minOccurs="0" />
+			<element name="EDUCATION_LEVEL_MODEL" type="string"
+				minOccurs="0" />
+			<element name="NEW_PARENT_INDICATOR" type="string" minOccurs="0" />
+			<element name="OCCUPATION_MODEL" type="string" minOccurs="0" />
+			<element name="OCCUPATION" type="string" minOccurs="0" />
+			<element name="PERNAMESUFFIX" type="string" minOccurs="0" />
+			<element name="PERNAMEPREFIX" type="string" minOccurs="0" />
+			<element name="PERMKTRESPONDER" type="string" minOccurs="0" />
+			<element name="PERETHNICCODE" type="string" minOccurs="0" />
+			<element name="PERETHNICLANG" type="string" minOccurs="0" />
+			<element name="PERSON_EXACT_AGE" type="string" minOccurs="0" />
+			<element name="FIRST_NAME" type="string" minOccurs="0" />
+			<element name="LAST_NAME" type="string" minOccurs="0" />
+			<element name="PERS_PERSTYPE_1" type="string" minOccurs="0" />
+			<element name="PERS_ET_CNTRY_1" type="string" minOccurs="0" />
+			<element name="PERS_ET_EXP_GRP_1" type="string" minOccurs="0" />
+			<element name="PERS_ET_GRP_1" type="string" minOccurs="0" />
+			<element name="PERS_ET_RELG_1" type="string" minOccurs="0" />
+			<element name="PERS_EST_AGE_101E" type="string" minOccurs="0" />
+			<element name="PERS_ET_INSIGHT_FLG_108E" type="string"
+				minOccurs="0" />
+			<element name="PERS_HHLD_STATUS_CODE_110" type="string"
+				minOccurs="0" />
+			<element name="PERS_POLITIC_AFFIL" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+	<complexType name="LivingUnitLevelDataType">
+		<sequence>
+			<element name="ESTIMATED_CURRENT_HOME_VALUE" type="string"
+				minOccurs="0" />
+			<element name="LIVULENGTHRESIDENCE" type="string" minOccurs="0" />
+			<element name="ENHANCED_YEAR_BUILD" type="string" minOccurs="0" />
+			<element name="LIV_RSIZ_BLD_SQF_RNG" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="Stage2DataType">
+		<sequence>
+			<!-- The following exist in ELS - as per Stage2DBToXMLMapping.xsl -->
+			<element name="Match_Type" type="string" minOccurs="0" />
+			<element name="Person" type="tns:PersonLevelDataType"
+				minOccurs="0" />
+			<element name="Livu" type="tns:LivingUnitLevelDataType"
+				minOccurs="0" />
+		</sequence>
+	</complexType>
+	<!-- End of Stage2 types -->
+	<!-- Start of Stage3 types -->
+	<complexType name="ModelDataType">
+		<sequence>
+			<!-- The following exist in ELS - as per -->
+			<element name="ModelName" type="string" minOccurs="0" />
+			<element name="ModelTier" type="string" minOccurs="0" />
+			<element name="ModelScore" type="string" minOccurs="0" />
+			<element name="ModelAdjustedScore" type="string" minOccurs="0" />
+			<element name="ModelType" type="string" minOccurs="0" />
+			<element name="ModelMessage" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="Stage3DataType">
+		<sequence>
+			<!-- The following exist in ELS - as per audit log output -->
+			<element name="Model" type="tns:ModelDataType" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<!-- End of Stage3 types -->
+
+	<complexType name="DuplicateMessageType">
+		<sequence>
+			<element name="DUPLICATE_LEAD" type="string" minOccurs="0" />
+			<element name="DUPLICATE_COUNT" type="integer" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<complexType name="MessageType">
+		<sequence>
+			<element name="TYPE" type="string" minOccurs="0" />
+			<element name="CATEGORY" type="string" minOccurs="0" />
+			<element name="VALUE" type="string" minOccurs="0" />
+			<element name="RESULT_CODE" type="string" minOccurs="0" />
+		</sequence>
+	</complexType>
+
+	<element name="ELSGenericMessage">
+		<complexType>
+			<sequence>
+				<choice>
+					<sequence>
+						<!-- The following field needs to be added new to ELS -->
+						<element name="CUSTOMER" type="tns:CustomerInfoType" />
+						<!-- The following fields are present in ELS based on code analysis -->
+						<element name="LEAD_TRANS_DETAILS" type="tns:LeadTransDetailsType"
+							minOccurs="0" />
+						<element name="LEAD_PHONE" type="tns:LeadPhoneType"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="LEAD_ADDRESS" type="tns:AddressType"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="LEAD_EMAIL" type="tns:LeadEmailType"
+							minOccurs="0" maxOccurs="unbounded" />
+						<element name="LEAD_INFO_DETAIL" type="tns:LeadInfoDetailType"
+							minOccurs="0" maxOccurs="unbounded" />
+					</sequence>
+					<sequence>
+						<!-- element name="ParsedName" type="tns:NameParserType" minOccurs="0"/ -->
+						<element name="NameParser" type="tns:NameParserType"
+							minOccurs="0" />
+						<!-- The following fields are present in ELS based on code analysis -->
+						<element name="StandardizedAddress" type="tns:StdAddressType"
+							minOccurs="0" />
+						<!-- The following fields are present in ELS based on code analysis -->
+						<element name="Stage1Data" type="tns:Stage1DataType"
+							minOccurs="0" />
+						<!-- The following fields are present in ELS based on code analysis -->
+						<element name="Stage2Data" type="tns:Stage2DataType"
+							minOccurs="0" />
+						<element name="Stage3Data" type="tns:Stage3DataType"
+							minOccurs="0" />
+						<element name="Message" type="tns:MessageType" minOccurs="0"
+							maxOccurs="unbounded" />
+						<element name="DuplicateMessage" type="tns:DuplicateMessageType"
+							minOccurs="0" />
+						<element name="TRANSACTION_ID" type="long" minOccurs="0" />
+						<element name="InputData" type="string" minOccurs="0" />
+					</sequence>
+				</choice>
+			</sequence>
+		</complexType>
+	</element>
+</schema>

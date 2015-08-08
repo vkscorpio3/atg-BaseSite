@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+ATG-Config-Path: config/
+ATG-Class-Path: lib/classes.jar lib/gen-classes.jar lib/gen-dto-classes.jar lib/
+ activation-1.1.jar lib/axis2-adb-1.6.2.jar lib/httpcore-4.4.jar 
+ lib/axis2-kernel-1.6.2.jar lib/axis2-transport-http-1.6.2.jar li
+ b/axis2-transport-local-1.6.2.jar lib/axis2-xmlbeans-1.6.2.jar lib/commons-code
+ c-1.3.jar lib/neethi-3.0.2.jar lib/wsdl4j-1.6.2.jar lib/xmlbeans-2.3.0.jar lib/
+ XmlSchema-1.4.7.jar lib/commons-lang3-3.3.2.jar lib/commons-httpclient-3.1.jar 
+ lib/jsr173_1.0_api.jar lib/javax.ws.rs-api-2.0.1.jar lib/jersey-client-2.19.jar 
+ lib/jersey-common-2.19.jar  lib/axiom.jar
+ATG-Client-Class-Path: lib/classes.jar lib/gen-classes.jar lib/gen-dto-classes.jar
+ATG-Required: 
+Name: lib/classes.jar
+ATG-Client-Update-Path: true

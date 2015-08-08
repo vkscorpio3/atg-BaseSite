@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!DOCTYPE gsa-template PUBLIC "-//Art Technology Group, Inc.//DTD General SQL Adapter//EN" "http://www.atg.com/dtds/gsa/gsa_1.0.dtd">
+
+<gsa-template>
+	<header>
+		<name>Profile Additions</name>
+	</header>
+
+	<item-descriptor name="user">
+
+		<table name="dps_user" id-column-name="id" type="primary" shared-table-sequence="1">
+			<attribute name="resourceBundle" value="atg.userprofiling.UserProfileTemplateResources" />
+
+			<property expert="false" readable="true" column-name="login" category-resource="categoryLogin" display-name-resource="login" data-type="string"
+				hidden="false" writable="true" name="login" required="false" cache-mode="inherit" queryable="true">
+				<attribute name="propertySortPriority" value="-7" />
+				<attribute name="resourceBundle" value="atg.userprofiling.UserProfileTemplateResources" />
+				<attribute name="secureLogging" value="true" />
+			</property>
+
+			<property expert="false" readable="true" column-name="password" category-resource="categoryLogin" display-name-resource="password" data-type="string"
+				hidden="false" writable="true" name="password" required="false" cache-mode="disabled" queryable="true" editor-class="atg.beans.PasswordPropertyEditor">
+				<attribute name="maxLength" value="64" />
+				<attribute bean="/atg/dynamo/security/PBKDF2PasswordHasher-10000" name="passwordHasher" />
+				<attribute bean="/atg/dynamo/security/PasswordHasherConfigurer" name="passwordHasherConfigurer" />
+				<attribute name="resourceBundle" value="atg.userprofiling.UserProfileTemplateResources" />
+				<attribute name="propertySortPriority" value="-6" />
+				<attribute name="secureLogging" value="true" />
+			</property>
+
+		</table>
+
+		<!-- Add Auxiliary table to store special data for user profile -->
+
+		<table name="atg_user" type="auxiliary" id-column-names="id">
+			<property name="userRole" column-name="userrole" display-name="UserRole" data-type="string" />
+			<property name="isActive" column-name="isactive" display-name="IsActive" data-type="string" />
+			<property name="isRemoved" column-name="isremoved" display-name="IsRemoved" data-type="string" />
+			<property name="lastLogin" column-name="lastlogin" display-name="LastLogin" data-type="string" />
+			<property name="loginattemptcount" column-name="loginattemptcount" display-name="LoginAttemptCount" data-type="string" />
+			<property name="addedBy" column-name="addedby" display-name="AddedBy" data-type="string" />
+		</table>
+
+		<table name="atg_user_phone" type="multi" id-column-name="user_id">
+			<property name="phones" column-name="id" display-name="PhoneNumbers" data-type="set" component-item-type="phone"/>
+		</table>
+
+		<table name="atg_user_customer" type="multi" id-column-name="user_id">
+			<property name="customers" column-name="id" display-name="Customers" data-type="set" component-item-type="customer"/>
+		</table>
+
+	</item-descriptor>
+
+	<!-- Use phoneInfo, as we have more than one Phone number to store as home, cell and work -->
+
+	<item-descriptor name="phone">
+		<table name="atg_phone" type="primary" id-column-name="id">
+			<property name="phonenumber" column-name="phonenumber" display-name="PhoneNumber" data-type="string" />
+			<property name="phonetype" column-name="phonetype" display-name="PhoneType" data-type="string" />
+		</table>
+	</item-descriptor>
+
+
+	<!-- Use customerDetail, as to store customerAccounts associated with specific login profile -->
+
+	<item-descriptor name="customer">
+		<table name="atg_customer" type="primary" id-column-name="id">
+			<property name="customerNumber" column-name="customernumber" display-name="CustomerNumber" data-type="string" />
+			<property name="partyid" column-name="partyid" display-name="PartyId" data-type="string" />
+			<property name="createdDate" column-name="createddate" display-name="CreatedDate" data-type="string" />
+			<property name="addedBy" column-name="addedby" display-name="AddedBy" data-type="string" />
+			<property name="customerName" column-name="customername" display-name="CustomerName" data-type="string" />
+			<!-- Depending on how we store contactInfo, we may need to store or just ignore below, serviceDescription, can be stored, not accurate but may be all current 
+				active unique services on customer account. If we choose to store this information, then we may need to update it periodically. -->
+			<property name="serviceAddress" column-name="serviceaddress" display-name="ServiceAddress" data-type="string" />
+			<property name="serviceDescription" column-name="servicedescription" display-name="ServiceDescription" data-type="string" />
+		</table>
+	</item-descriptor>
+
+</gsa-template>

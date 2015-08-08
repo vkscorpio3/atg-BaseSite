@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+ATG-Config-Path: config/
+ATG-Class-Path: lib/classes.jar lib/jdbc/ojdbc6.jar 
+ATG-Client-Class-Path: lib/classes.jar
+ATG-Required: DAS DPS DSS DCS
+ATG-J2EE: j2ee-apps/MyAccount
+ATG-EAR-Module: j2ee-apps/MyAccount
+Name: lib/classes.jar
+ATG-Client-Update-Path: true

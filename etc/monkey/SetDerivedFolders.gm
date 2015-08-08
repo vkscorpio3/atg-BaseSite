@@ -1,0 +1,41 @@
+/*
+ * Menu: Set "derived" folders
+ * Script-Path: /BaseSiteATG/etc/monkey/SetDerivedFolders.gm
+ * Kudos: Amit Kshirsagar <amit.kshirsagar.13@gmail.com>
+ * License: EPL 1.0
+ * Job: UIJob
+ * DOM: http://groovy-monkey.sourceforge.net/update/net.sf.groovyMonkey.dom
+ */
+
+import org.eclipse.core.resources.IFolder;
+
+def derivedNames = [ "bin", "classes", "gen-classes", "gen-doc", "gen-src", "gen-test-src" ];
+
+out.println("");
+out.println("Derived folders:");
+out.println("~~~~~~~~~~~~~~~~");
+
+def projects = workspace.getRoot().getProjects();
+
+def recurse(pFolder, pDerivedNames) {
+	if (pDerivedNames.contains(pFolder.getName())) {
+		out.println(pFolder.getFullPath().toString()); 
+		pFolder.setDerived(true);
+	}
+	
+	for (childMember in pFolder.members()) {
+		if (childMember instanceof IFolder) {
+			recurse(childMember, pDerivedNames);
+		}
+	}
+}
+
+for (project in projects) {
+	if (project.isOpen()) {
+		for (member in project.members()) {
+			if (member instanceof IFolder) {
+				recurse(member, derivedNames);
+			}
+		}
+	}
+}
