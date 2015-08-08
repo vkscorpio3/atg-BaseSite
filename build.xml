@@ -190,7 +190,7 @@
 			depth="infinite" />
 	</target>
 
-	<target name="assemble-ear" depends="compile-java"
+	<target name="assemble-ear" depends="deploy-atg-modules"
 		description="Assembles the app as an ATG production EAR">
 		<if>
 			<istrue value="${build.multiple.ears}" />
@@ -650,7 +650,7 @@
 		<antcall target="-eclipse-refresh" />
 	</target>
 	
-	<target name="deploy-atg-modules" depends="-init"
+	<target name="deploy-atg-modules"  depends="compile-java"
 		description="Copy the ATG module to DYNAMO_ROOT">
 		<copy todir="${dynamo.root}/MyDomain" preservelastmodified="true"
 			overwrite="false">

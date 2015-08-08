@@ -26,8 +26,24 @@
 	<hr />
 	<dsp:droplet name="TestGeoCodeDroplet">
 		<dsp:oparam name="output">
-		Return Code: <dsp:valueof
-				param="cityInfo.getInfoByCityResponse.getInfoByCityResult" />
+		Return Code: <dsp:setvalue param="citys"
+				paramvalue="cityInfo.getInfoByCityResponse.getInfoByCityResult.newDataSet.table" />
+
+			<dsp:droplet name="ForEach">
+				<dsp:param name="array" param="citys" />
+				<dsp:setvalue param="cityDetail" paramvalue="element" />
+				<dsp:oparam name="outputStart">
+					<ul>
+				</dsp:oparam>
+				<dsp:oparam name="output">
+					<li><dsp:valueof param="cityDetail.city" /> <dsp:valueof
+							param="cityDetail.state" />| <dsp:valueof param="cityDetail.zip" />|
+						<dsp:valueof param="cityDetail.area_code" /></li>
+				</dsp:oparam>
+				<dsp:oparam name="outputEnd">
+					</ul>
+				</dsp:oparam>
+			</dsp:droplet>
 			</br>
 		</dsp:oparam>
 		<dsp:oparam name="error">

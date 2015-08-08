@@ -94,7 +94,6 @@ public class TestGeoCodeDroplet extends DynamoServlet {
 				errorMessages.add(e.getMessage());
 			}
 		}
-
 		if (!errorOccurred) {
 			pRequest.setParameter(CITYINFO, getInfoByCityResponseDocument);
 			pRequest.serviceLocalParameter(OUTPUT, pRequest, pResponse);
