@@ -311,7 +311,6 @@
 
 	<target name="compile-java" depends="compile-java-gen"
 		description="Compiles all java classes in all java modules">
-		<!--<antcall target="-debug-classpath" /> -->
 		<for list="${java.modules}" param="java.module">
 			<sequential>
 				<!-- Standard Java files -->
@@ -327,7 +326,6 @@
 					</targetfiles>
 					<sequential>
 						<mkdir dir="@{java.module}/classes" />
-						<antcall target="-debug-classpath"></antcall>
 						<javac srcdir="@{java.module}/src" destdir="@{java.module}/classes"
 							target="${javac.target.version}" source="${javac.source.version}"
 							debug="on" includeAntRuntime="false">

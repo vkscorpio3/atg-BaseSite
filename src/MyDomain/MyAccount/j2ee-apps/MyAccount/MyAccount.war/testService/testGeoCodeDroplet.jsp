@@ -27,18 +27,17 @@
 	<dsp:droplet name="TestGeoCodeDroplet">
 		<dsp:oparam name="output">
 		Return Code: <dsp:setvalue param="citys"
-				paramvalue="cityInfo.getInfoByCityResponse.getInfoByCityResult.newDataSet.table" />
+				paramvalue="cityInfo.getInfoByCityResponse.getInfoByCityResult.domNode.firstChild" />
 
 			<dsp:droplet name="ForEach">
 				<dsp:param name="array" param="citys" />
-				<dsp:setvalue param="cityDetail" paramvalue="element" />
+				<dsp:setvalue param="table" paramvalue="element" />
 				<dsp:oparam name="outputStart">
 					<ul>
 				</dsp:oparam>
 				<dsp:oparam name="output">
-					<li><dsp:valueof param="cityDetail.city" /> <dsp:valueof
-							param="cityDetail.state" />| <dsp:valueof param="cityDetail.zip" />|
-						<dsp:valueof param="cityDetail.area_code" /></li>
+					<li><dsp:valueof param="table.city" />|<dsp:valueof
+							param="table.zip" /></li>
 				</dsp:oparam>
 				<dsp:oparam name="outputEnd">
 					</ul>
