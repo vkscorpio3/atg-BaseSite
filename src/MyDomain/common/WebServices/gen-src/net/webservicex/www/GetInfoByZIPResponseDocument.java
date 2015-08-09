@@ -17,7 +17,7 @@ package net.webservicex.www;
 public interface GetInfoByZIPResponseDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByZIPResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobyzipresponse843ddoctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByZIPResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobyzipresponse843ddoctype");
     
     /**
      * Gets the "GetInfoByZIPResponse" element
@@ -42,7 +42,7 @@ public interface GetInfoByZIPResponseDocument extends org.apache.xmlbeans.XmlObj
     public interface GetInfoByZIPResponse extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByZIPResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobyzipresponse7d20elemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByZIPResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobyzipresponse7d20elemtype");
         
         /**
          * Gets the "GetInfoByZIPResult" element
@@ -77,7 +77,7 @@ public interface GetInfoByZIPResponseDocument extends org.apache.xmlbeans.XmlObj
         public interface GetInfoByZIPResult extends org.apache.xmlbeans.XmlObject
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByZIPResult.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobyzipresult2901elemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByZIPResult.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobyzipresult2901elemtype");
             
             /**
              * A factory class with static methods for creating instances

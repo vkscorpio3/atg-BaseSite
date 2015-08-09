@@ -17,7 +17,7 @@ package net.webservicex.www;
 public interface GetInfoByCityResponseDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCityResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobycityresponse446fdoctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCityResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobycityresponse446fdoctype");
     
     /**
      * Gets the "GetInfoByCityResponse" element
@@ -42,7 +42,7 @@ public interface GetInfoByCityResponseDocument extends org.apache.xmlbeans.XmlOb
     public interface GetInfoByCityResponse extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCityResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobycityresponse443celemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCityResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobycityresponse443celemtype");
         
         /**
          * Gets the "GetInfoByCityResult" element
@@ -77,7 +77,7 @@ public interface GetInfoByCityResponseDocument extends org.apache.xmlbeans.XmlOb
         public interface GetInfoByCityResult extends org.apache.xmlbeans.XmlObject
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCityResult.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobycityresult3c2delemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCityResult.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobycityresult3c2delemtype");
             
             /**
              * A factory class with static methods for creating instances

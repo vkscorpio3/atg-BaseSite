@@ -17,7 +17,7 @@ package net.webservicex.www;
 public interface GetWeatherResponseDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetWeatherResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sFDA84181A38403FAF9916A67A68EAC90").resolveHandle("getweatherresponse1fc5doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetWeatherResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB2B2F29A0381C4F6CD4FA7422F919908").resolveHandle("getweatherresponse1fc5doctype");
     
     /**
      * Gets the "GetWeatherResponse" element
@@ -42,7 +42,7 @@ public interface GetWeatherResponseDocument extends org.apache.xmlbeans.XmlObjec
     public interface GetWeatherResponse extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetWeatherResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sFDA84181A38403FAF9916A67A68EAC90").resolveHandle("getweatherresponsefaa0elemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetWeatherResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB2B2F29A0381C4F6CD4FA7422F919908").resolveHandle("getweatherresponsefaa0elemtype");
         
         /**
          * Gets the "GetWeatherResult" element

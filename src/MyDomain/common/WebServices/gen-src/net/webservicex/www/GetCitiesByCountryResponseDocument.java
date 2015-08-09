@@ -17,7 +17,7 @@ package net.webservicex.www;
 public interface GetCitiesByCountryResponseDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetCitiesByCountryResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sFDA84181A38403FAF9916A67A68EAC90").resolveHandle("getcitiesbycountryresponse9183doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetCitiesByCountryResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB2B2F29A0381C4F6CD4FA7422F919908").resolveHandle("getcitiesbycountryresponse9183doctype");
     
     /**
      * Gets the "GetCitiesByCountryResponse" element
@@ -42,7 +42,7 @@ public interface GetCitiesByCountryResponseDocument extends org.apache.xmlbeans.
     public interface GetCitiesByCountryResponse extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetCitiesByCountryResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sFDA84181A38403FAF9916A67A68EAC90").resolveHandle("getcitiesbycountryresponse2160elemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetCitiesByCountryResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB2B2F29A0381C4F6CD4FA7422F919908").resolveHandle("getcitiesbycountryresponse2160elemtype");
         
         /**
          * Gets the "GetCitiesByCountryResult" element

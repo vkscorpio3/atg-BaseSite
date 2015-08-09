@@ -17,7 +17,7 @@ package net.webservicex.www;
 public interface GetInfoByAreaCodeDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCodeDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobyareacode6561doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCodeDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobyareacode6561doctype");
     
     /**
      * Gets the "GetInfoByAreaCode" element
@@ -42,7 +42,7 @@ public interface GetInfoByAreaCodeDocument extends org.apache.xmlbeans.XmlObject
     public interface GetInfoByAreaCode extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCode.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobyareacodeaf20elemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCode.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobyareacodeaf20elemtype");
         
         /**
          * Gets the "USAreaCode" element

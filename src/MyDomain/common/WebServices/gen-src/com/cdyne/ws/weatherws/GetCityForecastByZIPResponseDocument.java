@@ -17,7 +17,7 @@ package com.cdyne.ws.weatherws;
 public interface GetCityForecastByZIPResponseDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetCityForecastByZIPResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s7D2ABDC9F9F62D2671953FB283FA9323").resolveHandle("getcityforecastbyzipresponse0d44doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetCityForecastByZIPResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB94CA43C4AF724D8AFD2D59FB8134F3D").resolveHandle("getcityforecastbyzipresponse0d44doctype");
     
     /**
      * Gets the "GetCityForecastByZIPResponse" element
@@ -42,7 +42,7 @@ public interface GetCityForecastByZIPResponseDocument extends org.apache.xmlbean
     public interface GetCityForecastByZIPResponse extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetCityForecastByZIPResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s7D2ABDC9F9F62D2671953FB283FA9323").resolveHandle("getcityforecastbyzipresponse48cfelemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetCityForecastByZIPResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB94CA43C4AF724D8AFD2D59FB8134F3D").resolveHandle("getcityforecastbyzipresponse48cfelemtype");
         
         /**
          * Gets the "GetCityForecastByZIPResult" element

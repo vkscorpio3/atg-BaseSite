@@ -17,7 +17,7 @@ package net.webservicex.www;
 public interface GetInfoByStateDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByStateDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobystate424edoctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByStateDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobystate424edoctype");
     
     /**
      * Gets the "GetInfoByState" element
@@ -42,7 +42,7 @@ public interface GetInfoByStateDocument extends org.apache.xmlbeans.XmlObject
     public interface GetInfoByState extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByState.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobystateaac0elemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByState.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobystateaac0elemtype");
         
         /**
          * Gets the "USState" element

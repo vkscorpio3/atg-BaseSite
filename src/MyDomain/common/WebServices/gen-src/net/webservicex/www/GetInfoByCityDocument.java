@@ -17,7 +17,7 @@ package net.webservicex.www;
 public interface GetInfoByCityDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCityDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobycityd470doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCityDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobycityd470doctype");
     
     /**
      * Gets the "GetInfoByCity" element
@@ -42,7 +42,7 @@ public interface GetInfoByCityDocument extends org.apache.xmlbeans.XmlObject
     public interface GetInfoByCity extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCity.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobycityee3eelemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByCity.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobycityee3eelemtype");
         
         /**
          * Gets the "USCity" element

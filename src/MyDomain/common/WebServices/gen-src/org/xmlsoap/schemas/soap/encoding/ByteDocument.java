@@ -17,7 +17,7 @@ package org.xmlsoap.schemas.soap.encoding;
 public interface ByteDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(ByteDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s7D2ABDC9F9F62D2671953FB283FA9323").resolveHandle("byteb91edoctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(ByteDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sB94CA43C4AF724D8AFD2D59FB8134F3D").resolveHandle("byteb91edoctype");
     
     /**
      * Gets the "byte" element

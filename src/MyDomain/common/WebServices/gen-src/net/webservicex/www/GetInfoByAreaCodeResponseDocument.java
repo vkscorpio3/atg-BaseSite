@@ -17,7 +17,7 @@ package net.webservicex.www;
 public interface GetInfoByAreaCodeResponseDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCodeResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobyareacoderesponse5460doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCodeResponseDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobyareacoderesponse5460doctype");
     
     /**
      * Gets the "GetInfoByAreaCodeResponse" element
@@ -42,7 +42,7 @@ public interface GetInfoByAreaCodeResponseDocument extends org.apache.xmlbeans.X
     public interface GetInfoByAreaCodeResponse extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCodeResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobyareacoderesponse6a9eelemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCodeResponse.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobyareacoderesponse6a9eelemtype");
         
         /**
          * Gets the "GetInfoByAreaCodeResult" element
@@ -77,7 +77,7 @@ public interface GetInfoByAreaCodeResponseDocument extends org.apache.xmlbeans.X
         public interface GetInfoByAreaCodeResult extends org.apache.xmlbeans.XmlObject
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCodeResult.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sDF782A3E5A7367573321D627FB643759").resolveHandle("getinfobyareacoderesult6b40elemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GetInfoByAreaCodeResult.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s49D8D563B634FA26587747A2ACA12DBD").resolveHandle("getinfobyareacoderesult6b40elemtype");
             
             /**
              * A factory class with static methods for creating instances
