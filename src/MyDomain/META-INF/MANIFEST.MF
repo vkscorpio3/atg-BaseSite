@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-ATG-Required: MyDomain.common MyDomain.MyAccount
+ATG-Required: DafEar.Admin DAS DCS DPS PublishingAgent PublishingAgent.base MyDomain.common MyDomain.MyAccount

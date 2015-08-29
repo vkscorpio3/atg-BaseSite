@@ -1,9 +1,7 @@
+/org/
+/soap/
+/net/
 /atg/
 /com/
-/net/
-/org/
-/schemaorg_apache_xmlbeans/
 /services/
-/soap/
-/generated/
-/svm/
+/schemaorg_apache_xmlbeans/
