@@ -1,7 +1,3 @@
-/org/
-/soap/
-/net/
-/atg/
 /com/
-/services/
 /schemaorg_apache_xmlbeans/
+/.gitignore
