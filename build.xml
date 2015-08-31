@@ -184,6 +184,12 @@
 		<tstamp />
 	</target>
 
+
+	<target name="clean-deployment">
+		<delete dir="${jboss6.deploy.dir}/${ear.filename}" quiet="true" includeEmptyDirs="true" />
+		<delete dir="${dynamo.root}/MyDomain" quiet="true" includeEmptyDirs="true" />
+	</target>
+
 	<target name="-eclipse-refresh" if="eclipse.running"
 		description="Refreshes Eclipse project when run inside the Eclipse workspace JRE">
 		<eclipse.refreshLocal resource="${basedir}"
@@ -647,8 +653,8 @@
 		</for>
 		<antcall target="-eclipse-refresh" />
 	</target>
-	
-	<target name="deploy-atg-modules"  depends="compile-java"
+
+	<target name="deploy-atg-modules" depends="compile-java"
 		description="Copy the ATG module to DYNAMO_ROOT">
 		<copy todir="${dynamo.root}/MyDomain" preservelastmodified="true"
 			overwrite="false">
@@ -660,8 +666,8 @@
 		<!-- Fix up appserver-specific files, if required -->
 		<switch value="${appserver.type}">
 			<case value="weblogic">
-				<copy todir="${dynamo.root}/MyDomain"
-					preservelastmodified="true" overwrite="true">
+				<copy todir="${dynamo.root}/MyDomain" preservelastmodified="true"
+					overwrite="true">
 					<fileset dir="${module.prefix}">
 						<include name="**/j2ee-apps/**/*.weblogic" />
 					</fileset>
