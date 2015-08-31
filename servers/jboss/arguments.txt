@@ -1,0 +1,5 @@
+Program:
+-mp "C:/opt/JBoss/wildfly-8.2.0.Final/modules" -jaxpmodule javax.xml.jaxp-provider org.jboss.as.standalone -b localhost --server-config=standalone.xml -Djboss.server.base.dir=C:\opt\JBoss\wildfly-8.2.0.Final\standalone 
+
+VM:
+"-Dprogram.name=JBossTools: WildFly8.2" -server -Xms512m -Xmx1536m -XX:MaxPermSize=256m -Dorg.jboss.resolver.warning=true -Djava.net.preferIPv4Stack=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true "-Dorg.jboss.boot.log.file=C:/opt/JBoss/wildfly-8.2.0.Final/standalone/log/boot.log" "-Dlogging.configuration=file:/C:/opt/JBoss/wildfly-8.2.0.Final/standalone/configuration/logging.properties" "-Djboss.home.dir=C:/opt/JBoss/wildfly-8.2.0.Final" -Dorg.jboss.logmanager.nocolor=false -Djboss.bind.address.management=localhost -Datg.dynamo.modules=DAS,DCS,DPS,DafEar.Admin,MyDomain,MyDomain.MyAccount -Datg.dynamo.server.name=JBOSSSM -Djava.rmi.server.hostname=localhost -Djava.endorsed.dirs=C:/opt/jar/xerces-2.4.0.jar 
