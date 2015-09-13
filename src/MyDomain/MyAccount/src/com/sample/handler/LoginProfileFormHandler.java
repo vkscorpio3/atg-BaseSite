@@ -63,7 +63,7 @@ public class LoginProfileFormHandler extends CommerceProfileFormHandler {
 	@Override
 	public boolean handleLogin(DynamoHttpServletRequest pRequest, DynamoHttpServletResponse pResponse)
 			throws IOException, ServletException {
-
+		logInfo("started work in handleLogin...");
 		return super.handleLogin(pRequest, pResponse);
 	}
 
@@ -94,8 +94,8 @@ public class LoginProfileFormHandler extends CommerceProfileFormHandler {
 
 			QueryExpression firstName = userQueryBuilder.createPropertyQueryExpression("login");
 
-			QueryExpression firstNameBill = userQueryBuilder.createConstantQueryExpression(ServletUtil
-					.getCurrentUserProfile().getPropertyValue("login"));
+			QueryExpression firstNameBill = userQueryBuilder
+					.createConstantQueryExpression(ServletUtil.getCurrentUserProfile().getPropertyValue("login"));
 
 			Query firstNameBillQuery = userQueryBuilder.createComparisonQuery(firstName, firstNameBill,
 					QueryBuilder.EQUALS);
