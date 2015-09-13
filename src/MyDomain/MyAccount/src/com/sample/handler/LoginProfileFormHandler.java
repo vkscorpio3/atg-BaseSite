@@ -23,8 +23,11 @@ import java.io.IOException;
 import java.util.Set;
 
 import javax.servlet.ServletException;
+import javax.transaction.TransactionManager;
 
 import atg.commerce.profile.CommerceProfileFormHandler;
+import atg.dtm.TransactionDemarcation;
+import atg.dtm.TransactionDemarcationException;
 import atg.repository.Query;
 import atg.repository.QueryBuilder;
 import atg.repository.QueryExpression;
@@ -65,6 +68,29 @@ public class LoginProfileFormHandler extends CommerceProfileFormHandler {
 			throws IOException, ServletException {
 		logInfo("started work in handleLogin...");
 		return super.handleLogin(pRequest, pResponse);
+	}
+
+	@Override
+	public boolean handleCreate(DynamoHttpServletRequest pRequest, DynamoHttpServletResponse pResponse)
+			throws IOException, ServletException {
+		logInfo("started work in handleCreate...");
+		boolean createdSuccessfully = false;
+		final TransactionManager tManager = getTransactionManager();
+		final TransactionDemarcation tDemarcation = getTransactionDemarcation();
+		try {
+			createdSuccessfully = super.handleCreate(pRequest, pResponse);
+		} catch (ServletException e) {
+			throw new ServletException(e);
+		} finally {
+			try {
+				if (tManager != null) {
+					tDemarcation.end();
+				}
+			} catch (TransactionDemarcationException e) {
+
+			}
+		}
+		return createdSuccessfully;
 	}
 
 	public boolean handleUserProfile(DynamoHttpServletRequest pRequest, DynamoHttpServletResponse pResponse)

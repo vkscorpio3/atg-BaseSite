@@ -1,4 +1,4 @@
-admin-Amogh123
+dyn-admin-Amogh123
 atg-amogh123
 jboss-admin:Amogh*123/weblogic1(fly)
 
