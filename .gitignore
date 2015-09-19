@@ -1,1 +1,4 @@
-/bin/
+**/bin/*.class
+**/class/*.class
+**/gen-src/*.class
+**/gen-classes/*.class
