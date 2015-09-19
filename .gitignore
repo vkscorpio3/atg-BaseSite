@@ -2,3 +2,7 @@
 **/class/*.class
 **/gen-src/*.class
 **/gen-classes/*.class
+**/class/*
+**/gen-classes/*
+**/gen-src/*
+**/bin/*
