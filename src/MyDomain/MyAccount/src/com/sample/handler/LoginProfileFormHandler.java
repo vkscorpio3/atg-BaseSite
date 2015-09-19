@@ -25,7 +25,6 @@ import java.util.Set;
 import javax.servlet.ServletException;
 import javax.transaction.TransactionManager;
 
-import atg.commerce.profile.CommerceProfileFormHandler;
 import atg.dtm.TransactionDemarcation;
 import atg.dtm.TransactionDemarcationException;
 import atg.repository.Query;
@@ -38,8 +37,9 @@ import atg.repository.RepositoryView;
 import atg.servlet.DynamoHttpServletRequest;
 import atg.servlet.DynamoHttpServletResponse;
 import atg.servlet.ServletUtil;
+import atg.userprofiling.ProfileFormHandler;
 
-public class LoginProfileFormHandler extends CommerceProfileFormHandler {
+public class LoginProfileFormHandler extends ProfileFormHandler {
 
 	@Override
 	public boolean beforeSet(DynamoHttpServletRequest request, DynamoHttpServletResponse response) {
