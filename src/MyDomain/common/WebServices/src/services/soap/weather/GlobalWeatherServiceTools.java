@@ -5,21 +5,20 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import net.webservicex.www.GetWeatherDocument;
-import net.webservicex.www.GetWeatherResponseDocument;
-
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Stub;
 import org.apache.xmlbeans.XmlObject;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+
+import atg.core.util.StringUtils;
+import atg.nucleus.ServiceException;
+import net.webservicex.www.GetWeatherDocument;
+import net.webservicex.www.GetWeatherResponseDocument;
 import services.CacheableXmlObject;
 import services.WebServiceTools;
 import soap.weather.GlobalWeatherStub;
-import atg.core.util.StringUtils;
-import atg.nucleus.ServiceException;
-
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
 
 /**
  * <p>
@@ -27,11 +26,11 @@ import com.google.common.cache.CacheBuilder;
  * <p>
  * 
  * <pre>
- * @Project: BaseSite
+ * &#64;Project: BaseSite
  * Creation date: Jul 28, 2015
- * @author Amit Kshirsagar
- * @version 1.0
- * @since
+ * &#64;author Amit Kshirsagar
+ * &#64;version 1.0
+ * &#64;since
  * 
  * <p><b>Modification History:</b><p>
  * 
@@ -245,7 +244,6 @@ public class GlobalWeatherServiceTools extends WebServiceTools {
 	public GetWeatherDocument getGetWeatherDocument() {
 		GetWeatherDocument getWeatherDocument = GetWeatherDocument.Factory.newInstance();
 		getWeatherDocument.addNewGetWeather();
-
 		return getWeatherDocument;
 	}
 }

@@ -9,7 +9,23 @@ import atg.servlet.DynamoHttpServletResponse;
 import atg.servlet.DynamoServlet;
 
 /**
- * MyAccountDroplet.
+ * 
+ * <p>
+ * <b>Overview:</b>
+ * <p>
+ * 
+ * 
+ * <pre>
+ * &#64;projectName BaseSite
+ * Creation date: Sep 21, 2015
+ * &#64;author Amit Kshirsagar
+ * &#64;version 1.0
+ * &#64;since
+ * 
+ * <p><b>Modification History:</b><p>
+ * 
+ * 
+ * </pre>
  */
 public class TestDroplet extends DynamoServlet {
 

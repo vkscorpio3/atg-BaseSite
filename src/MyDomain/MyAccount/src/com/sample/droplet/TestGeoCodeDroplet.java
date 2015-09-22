@@ -7,12 +7,32 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
-import net.webservicex.www.GetInfoByCityDocument;
-import net.webservicex.www.GetInfoByCityResponseDocument;
-import services.WebServicesToolsManager;
 import atg.servlet.DynamoHttpServletRequest;
 import atg.servlet.DynamoHttpServletResponse;
 import atg.servlet.DynamoServlet;
+import net.webservicex.www.GetInfoByCityDocument;
+import net.webservicex.www.GetInfoByCityResponseDocument;
+import services.WebServicesToolsManager;
+
+/**
+ * 
+ * <p>
+ * <b>Overview:</b>
+ * <p>
+ * 
+ * 
+ * <pre>
+ * &#64;projectName BaseSite
+ * Creation date: Sep 21, 2015
+ * &#64;author Amit Kshirsagar
+ * &#64;version 1.0
+ * &#64;since
+ * 
+ * <p><b>Modification History:</b><p>
+ * 
+ * 
+ * </pre>
+ */
 
 public class TestGeoCodeDroplet extends DynamoServlet {
 
@@ -79,8 +99,8 @@ public class TestGeoCodeDroplet extends DynamoServlet {
 
 				getInfoByCityDocument.getGetInfoByCity().setUSCity(usCity);
 
-				getInfoByCityResponseDocument = getWebServicesToolsManager().getGeoCodeServiceTools().getInfoByCity(
-						getInfoByCityDocument);
+				getInfoByCityResponseDocument = getWebServicesToolsManager().getGeoCodeServiceTools()
+						.getInfoByCity(getInfoByCityDocument);
 
 				if (getInfoByCityResponseDocument == null) {
 					errorOccurred = true;
