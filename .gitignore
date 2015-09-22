@@ -1,9 +1,8 @@
-**/bin/*.class
-**/class/*.class
-**/gen-src/*.class
-**/gen-classes/*.class
-**/class/**/*
-**/gen-classes/**/*
-**/gen-src/**/*
-**/bin/**/*
-**/lib/classes.jar
+bin/
+class/
+gen-src/
+gen-classes/
+class/
+gen-classes/
+gen-src/
+lib/classes.jar
