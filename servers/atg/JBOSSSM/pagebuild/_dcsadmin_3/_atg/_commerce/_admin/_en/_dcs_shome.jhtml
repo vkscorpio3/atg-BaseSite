@@ -1,7 +1,0 @@
-  <tr valign=top>
-    <td><a href="index.jhtml">Commerce Administration</a></td>
-    <td>Administer product inventory, order fulfillment, and the product
-    catalog.</td>
-  </tr>
-<java>/* @version $Id: //product/DCS/version/11.1/release/DCS/admin/atg/commerce/admin/en/dcs-home.jhtml#1 $$Change: 875535 $*/</java>
-
