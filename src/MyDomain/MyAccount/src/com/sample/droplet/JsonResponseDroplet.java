@@ -3,12 +3,15 @@ package com.sample.droplet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
 
 import com.google.gson.Gson;
+import com.sample.ui.bean.user.UserDetail;
 
 import atg.servlet.DynamoHttpServletRequest;
 import atg.servlet.DynamoHttpServletResponse;
@@ -46,25 +49,50 @@ public class JsonResponseDroplet extends DynamoServlet {
 
 	private Map<String, Object> mResponseObject;
 
-	private WebServicesToolsManager mWebServiceToolsManager;
+	private WebServicesToolsManager mWebServicesToolsManager;
 
 	@Override
 	public void service(DynamoHttpServletRequest pRequest, DynamoHttpServletResponse pResponse)
 			throws ServletException, IOException {
 		String cityName = pRequest.getParameter(PARAM_CITYNAME);
 
-		logInfo("Working with Param: " + cityName);
+		// logInfo("Working with Param: " + cityName);
 
 		/*
 		 * Get Your work done from here or call some webservice for getting work
 		 * done
 		 */
 
-		getWeatherDetails(cityName);
+		// getWeatherDetails(cityName);
 
 		Gson gson = new Gson();
 		Map<String, Object> jsonResponseWrapper = new HashMap<String, Object>();
-		jsonResponseWrapper.put("weatherDetails", getResponseObject());
+
+		List<UserDetail> userMap = new ArrayList<UserDetail>();
+
+		UserDetail userDetail = new UserDetail();
+
+		userDetail.setName("Amit");
+		userDetail.setAge("30");
+		userDetail.setRelation("Self");
+		userMap.add(userDetail);
+		userDetail = new UserDetail();
+		userDetail.setName("Amogh");
+		userDetail.setAge("6");
+		userDetail.setRelation("Son");
+		userMap.add(userDetail);
+		userDetail = new UserDetail();
+		userDetail.setName("Poonam");
+		userDetail.setAge("30");
+		userDetail.setRelation("Wife");
+		userMap.add(userDetail);
+		userDetail = new UserDetail();
+		userDetail.setName("Pallavi");
+		userDetail.setAge("28");
+		userDetail.setRelation("SIL");
+		userMap.add(userDetail);
+
+		jsonResponseWrapper.put("weatherDetails", userMap);
 
 		String jsonStringResponse = gson.toJson(jsonResponseWrapper);
 
@@ -78,11 +106,13 @@ public class JsonResponseDroplet extends DynamoServlet {
 			GetWeatherDocument getWeatherDocument = getWebServiceToolsManager().getGlobalWeatherServiceTools()
 					.getGetWeatherDocument();
 			getWeatherDocument.getGetWeather().setCityName(pCityName);
+			getWeatherDocument.getGetWeather().setCountryName("United States");
 
 			GetWeatherResponseDocument getWeatherResponseDocument = getWebServiceToolsManager()
-					.getGlobalWeatherServiceTools().getWeatherByZipCode(getWeatherDocument);
+					.getGlobalWeatherServiceTools().getWeatherByCity(getWeatherDocument);
 
-			getResponseObject().put(pCityName, getWeatherResponseDocument);
+			getResponseObject().put(pCityName,
+					getWeatherResponseDocument.getGetWeatherResponse().getGetWeatherResult());
 		}
 	}
 
@@ -109,11 +139,11 @@ public class JsonResponseDroplet extends DynamoServlet {
 	}
 
 	public WebServicesToolsManager getWebServiceToolsManager() {
-		return mWebServiceToolsManager;
+		return mWebServicesToolsManager;
 	}
 
-	public void setWebServiceToolsManager(WebServicesToolsManager pWebServiceToolsManager) {
-		mWebServiceToolsManager = pWebServiceToolsManager;
+	public void setWebServicesToolsManager(WebServicesToolsManager pWebServicesToolsManager) {
+		mWebServicesToolsManager = pWebServicesToolsManager;
 	}
 
 	public String getCityName() {

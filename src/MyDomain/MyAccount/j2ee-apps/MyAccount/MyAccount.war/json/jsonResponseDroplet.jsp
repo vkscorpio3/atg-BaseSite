@@ -3,7 +3,7 @@
 <dsp:page>
 	<dsp:importbean bean="/com/sample/droplet/JsonResponseDroplet" />
 	<dsp:droplet name="JsonResponseDroplet">
-		<dsp:param name="cityName" value="Memphis" />
+		<dsp:param name="cityName" value="${param.cityName}" />
 		<dsp:oparam name="output">
 		</dsp:oparam>
 	</dsp:droplet>

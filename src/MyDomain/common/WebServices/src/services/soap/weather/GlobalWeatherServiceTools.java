@@ -195,7 +195,7 @@ public class GlobalWeatherServiceTools extends WebServiceTools {
 		mCachedDocumentUriResponses = pCachedDocumentUriResponses;
 	}
 
-	public GetWeatherResponseDocument getWeatherByZipCode(GetWeatherDocument pReq) throws RemoteException {
+	public GetWeatherResponseDocument getWeatherByCity(GetWeatherDocument pReq) throws RemoteException {
 		logDebug("Processing retrieveDocumentList link Webservice call ....");
 		final GlobalWeatherStub stub = (GlobalWeatherStub) getCurrentStub(this.getAbsoluteName());
 
