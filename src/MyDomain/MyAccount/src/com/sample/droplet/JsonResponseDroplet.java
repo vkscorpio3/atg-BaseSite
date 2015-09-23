@@ -45,6 +45,7 @@ import services.WebServicesToolsManager;
 public class JsonResponseDroplet extends DynamoServlet {
 
 	public static String OUTPUT = "output";
+	public static final String ERROR = "error";
 
 	public static String PARAM_CITYNAME = "cityName";
 
@@ -101,6 +102,7 @@ public class JsonResponseDroplet extends DynamoServlet {
 			RepositoryItem messageItem = getMessageRepository().getItem("1");
 			String message = (String) messageItem.getPropertyValue("message");
 			String key = (String) messageItem.getPropertyValue("message_key");
+			logInfo(key + "::" + message);
 		} catch (RepositoryException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,6 +112,7 @@ public class JsonResponseDroplet extends DynamoServlet {
 
 		String jsonStringResponse = gson.toJson(jsonResponseWrapper);
 
+		logInfo(jsonStringResponse);
 		PrintWriter pw = pResponse.getWriter();
 		pw.print(jsonStringResponse);
 	}
@@ -128,17 +131,6 @@ public class JsonResponseDroplet extends DynamoServlet {
 			getResponseObject().put(pCityName,
 					getWeatherResponseDocument.getGetWeatherResponse().getGetWeatherResult());
 		}
-	}
-
-	String name = null;
-
-	@Override
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public Map<String, Object> getResponseObject() {
