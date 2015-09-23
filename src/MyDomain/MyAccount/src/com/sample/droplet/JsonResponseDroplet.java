@@ -13,6 +13,9 @@ import javax.servlet.ServletException;
 import com.google.gson.Gson;
 import com.sample.ui.bean.user.UserDetail;
 
+import atg.adapter.gsa.GSARepository;
+import atg.repository.RepositoryException;
+import atg.repository.RepositoryItem;
 import atg.servlet.DynamoHttpServletRequest;
 import atg.servlet.DynamoHttpServletResponse;
 import atg.servlet.DynamoServlet;
@@ -50,6 +53,8 @@ public class JsonResponseDroplet extends DynamoServlet {
 	private Map<String, Object> mResponseObject;
 
 	private WebServicesToolsManager mWebServicesToolsManager;
+
+	private GSARepository messageRepository;
 
 	@Override
 	public void service(DynamoHttpServletRequest pRequest, DynamoHttpServletResponse pResponse)
@@ -91,6 +96,15 @@ public class JsonResponseDroplet extends DynamoServlet {
 		userDetail.setAge("28");
 		userDetail.setRelation("SIL");
 		userMap.add(userDetail);
+
+		try {
+			RepositoryItem messageItem = getMessageRepository().getItem("1");
+			String message = (String) messageItem.getPropertyValue("message");
+			String key = (String) messageItem.getPropertyValue("message_key");
+		} catch (RepositoryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		jsonResponseWrapper.put("weatherDetails", userMap);
 
@@ -152,5 +166,13 @@ public class JsonResponseDroplet extends DynamoServlet {
 
 	public void setCityName(String pCityName) {
 		mCityName = pCityName;
+	}
+
+	public GSARepository getMessageRepository() {
+		return messageRepository;
+	}
+
+	public void setMessageRepository(GSARepository pMessageRepository) {
+		messageRepository = pMessageRepository;
 	}
 }

@@ -50,3 +50,20 @@ CREATE TABLE atg_user_customer
   CONSTRAINT atg_user_customer_id_fk FOREIGN KEY (id) REFERENCES atg_customer (id),
   CONSTRAINT atg_user_customer_user_id_fk FOREIGN KEY (user_id) REFERENCES dps_user (id)
 );
+
+
+
+CREATE TABLE ATG_MESSAGES 
+(
+  ID INT NOT NULL 
+, APPLICATION VARCHAR2(20) 
+, MSGLEVEL VARCHAR2(20) 
+, MESSAGE_KEY VARCHAR2(20) 
+, MESSAGE VARCHAR2(150) 
+, STATUS NUMBER(1) 
+, CONSTRAINT ATG_MESSAGES_PK PRIMARY KEY 
+  (
+    ID 
+  )
+  ENABLE 
+);
