@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-ATG-Required: DAS DCS DPS PublishingAgent MyDomain.common MyDomain.MyAccount
+ATG-Required: MyDomain.MyAccount
