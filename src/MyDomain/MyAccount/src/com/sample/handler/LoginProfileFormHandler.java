@@ -23,8 +23,10 @@ import java.io.IOException;
 import java.util.Set;
 
 import javax.servlet.ServletException;
+import javax.transaction.TransactionManager;
 
-import atg.commerce.profile.CommerceProfileFormHandler;
+import atg.dtm.TransactionDemarcation;
+import atg.dtm.TransactionDemarcationException;
 import atg.repository.Query;
 import atg.repository.QueryBuilder;
 import atg.repository.QueryExpression;
@@ -35,8 +37,9 @@ import atg.repository.RepositoryView;
 import atg.servlet.DynamoHttpServletRequest;
 import atg.servlet.DynamoHttpServletResponse;
 import atg.servlet.ServletUtil;
+import atg.userprofiling.ProfileFormHandler;
 
-public class LoginProfileFormHandler extends CommerceProfileFormHandler {
+public class LoginProfileFormHandler extends ProfileFormHandler {
 
 	@Override
 	public boolean beforeSet(DynamoHttpServletRequest request, DynamoHttpServletResponse response) {
@@ -63,8 +66,31 @@ public class LoginProfileFormHandler extends CommerceProfileFormHandler {
 	@Override
 	public boolean handleLogin(DynamoHttpServletRequest pRequest, DynamoHttpServletResponse pResponse)
 			throws IOException, ServletException {
-
+		logInfo("started work in handleLogin...");
 		return super.handleLogin(pRequest, pResponse);
+	}
+
+	@Override
+	public boolean handleCreate(DynamoHttpServletRequest pRequest, DynamoHttpServletResponse pResponse)
+			throws IOException, ServletException {
+		logInfo("started work in handleCreate...");
+		boolean createdSuccessfully = false;
+		final TransactionManager tManager = getTransactionManager();
+		final TransactionDemarcation tDemarcation = getTransactionDemarcation();
+		try {
+			createdSuccessfully = super.handleCreate(pRequest, pResponse);
+		} catch (ServletException e) {
+			throw new ServletException(e);
+		} finally {
+			try {
+				if (tManager != null) {
+					tDemarcation.end();
+				}
+			} catch (TransactionDemarcationException e) {
+
+			}
+		}
+		return createdSuccessfully;
 	}
 
 	public boolean handleUserProfile(DynamoHttpServletRequest pRequest, DynamoHttpServletResponse pResponse)
@@ -94,8 +120,8 @@ public class LoginProfileFormHandler extends CommerceProfileFormHandler {
 
 			QueryExpression firstName = userQueryBuilder.createPropertyQueryExpression("login");
 
-			QueryExpression firstNameBill = userQueryBuilder.createConstantQueryExpression(ServletUtil
-					.getCurrentUserProfile().getPropertyValue("login"));
+			QueryExpression firstNameBill = userQueryBuilder
+					.createConstantQueryExpression(ServletUtil.getCurrentUserProfile().getPropertyValue("login"));
 
 			Query firstNameBillQuery = userQueryBuilder.createComparisonQuery(firstName, firstNameBill,
 					QueryBuilder.EQUALS);

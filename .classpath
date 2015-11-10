@@ -16,5 +16,6 @@
 	<classpathentry kind="lib" path="lib/prepend/jackson-annotations-2.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/prepend/jackson-core-2.6.0.jar"/>
 	<classpathentry kind="lib" path="lib/prepend/jackson-databind-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/json/gson-2.2.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

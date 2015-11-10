@@ -164,16 +164,11 @@
 	<!-- =================================================================== -->
 
 	<taskdef resource="net/sf/antcontrib/antlib.xml" classpath="${basedir}/lib/ant/ant-contrib-1.0b3.jar" />
-	<taskdef name="atg-assemble-ear" classname="atg.appassembly.ant.CreateUnpackedEarTask"
-		classpathref="atg.assembler.classpath" />
-	<taskdef name="atg-pack-ear" classname="atg.appassembly.ant.PackEarFileTask"
-		classpathref="atg.assembler.classpath" />
-	<taskdef name="xmlbean" classname="org.apache.xmlbeans.impl.tool.XMLBean"
-		classpath="${axis2.home}/lib/xmlbeans-2.3.0.jar" />
-	<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask"
-		classpath="${basedir}/lib/ant/xmltask-1.16.jar" />
-	<taskdef name="wjc" classname="org.jvnet.ws.wadl2java.WJCTask"
-		classpathref="wadl2java.classpath" />
+	<taskdef name="atg-assemble-ear" classname="atg.appassembly.ant.CreateUnpackedEarTask" classpathref="atg.assembler.classpath" />
+	<taskdef name="atg-pack-ear" classname="atg.appassembly.ant.PackEarFileTask" classpathref="atg.assembler.classpath" />
+	<taskdef name="xmlbean" classname="org.apache.xmlbeans.impl.tool.XMLBean" classpath="${axis2.home}/lib/xmlbeans-2.3.0.jar" />
+	<taskdef name="xmltask" classname="com.oopsconsultancy.xmltask.ant.XmlTask" classpath="${basedir}/lib/ant/xmltask-1.16.jar" />
+	<taskdef name="wjc" classname="org.jvnet.ws.wadl2java.WJCTask" classpathref="wadl2java.classpath" />
 
 
 	<!-- =================================================================== -->
@@ -190,14 +185,11 @@
 		<delete dir="${dynamo.root}/MyDomain" quiet="true" includeEmptyDirs="true" />
 	</target>
 
-	<target name="-eclipse-refresh" if="eclipse.running"
-		description="Refreshes Eclipse project when run inside the Eclipse workspace JRE">
-		<eclipse.refreshLocal resource="${basedir}"
-			depth="infinite" />
+	<target name="-eclipse-refresh" if="eclipse.running" description="Refreshes Eclipse project when run inside the Eclipse workspace JRE">
+		<eclipse.refreshLocal resource="${basedir}" depth="infinite" />
 	</target>
 
-	<target name="assemble-ear" depends="deploy-atg-modules"
-		description="Assembles the app as an ATG production EAR">
+	<target name="assemble-ear" depends="deploy-atg-modules" description="Assembles the app as an ATG production EAR">
 		<if>
 			<istrue value="${build.multiple.ears}" />
 			<then>
@@ -207,16 +199,10 @@
 						<for list="${ear.filenames}" param="ear.filename">
 							<sequential>
 								<echo message="Assembling @{ear.filename}" />
-								<atg-assemble-ear dynamoroot="${dynamo.root}"
-									dynamoModules="${assembler.global.modules},${assembler.app.modules.@{ear.filename}}"
-									destinationFile="${assembler.build.dir}/@{ear.filename}"
-									standalone="${assembler.standalone}" overwrite="${assembler.overwrite}"
-									liveConfig="${assembler.liveconfig}" adddistributable="${assembler.distributable}"
-									layer="${assembler.layers.@{ear.filename}}" prependjars="${assembler.prepend.jars}" />
+								<atg-assemble-ear dynamoroot="${dynamo.root}" dynamoModules="${assembler.global.modules},${assembler.app.modules.@{ear.filename}}" destinationFile="${assembler.build.dir}/@{ear.filename}" standalone="${assembler.standalone}" overwrite="${assembler.overwrite}" liveConfig="${assembler.liveconfig}" adddistributable="${assembler.distributable}" layer="${assembler.layers.@{ear.filename}}" prependjars="${assembler.prepend.jars}" />
 								<for list="${assembler.add.meta}" param="additional.meta">
 									<sequential>
-										<copy todir="${assembler.build.dir}/@{ear.filename}/META-INF"
-											file="@{additional.meta}" overwrite="true" />
+										<copy todir="${assembler.build.dir}/@{ear.filename}/META-INF" file="@{additional.meta}" overwrite="true" />
 									</sequential>
 								</for>
 								<antcall target="-ear-pack">
@@ -226,8 +212,7 @@
 						</for>
 					</then>
 					<else>
-						<fail
-							message="Configuration problem: If build.multiple.ears is true then build.only must also be true" />
+						<fail message="Configuration problem: If build.multiple.ears is true then build.only must also be true" />
 					</else>
 				</if>
 			</then>
@@ -235,16 +220,10 @@
 				<if>
 					<istrue value="${build.only}" />
 					<then>
-						<atg-assemble-ear dynamoroot="${dynamo.root}"
-							dynamoModules="${assembler.global.modules},${assembler.app.modules}"
-							destinationFile="${assembler.build.dir}/${ear.filename}"
-							standalone="${assembler.standalone}" overwrite="${assembler.overwrite}"
-							liveConfig="${assembler.liveconfig}" adddistributable="${assembler.distributable}"
-							layer="${assembler.layers}" prependjars="${assembler.prepend.jars}" />
+						<atg-assemble-ear dynamoroot="${dynamo.root}" dynamoModules="${assembler.global.modules},${assembler.app.modules}" destinationFile="${assembler.build.dir}/${ear.filename}" standalone="${assembler.standalone}" overwrite="${assembler.overwrite}" liveConfig="${assembler.liveconfig}" adddistributable="${assembler.distributable}" layer="${assembler.layers}" prependjars="${assembler.prepend.jars}" />
 						<for list="${assembler.add.meta}" param="additional.meta">
 							<sequential>
-								<copy todir="${assembler.build.dir}/${ear.filename}/META-INF"
-									file="@{additional.meta}" overwrite="true" />
+								<copy todir="${assembler.build.dir}/${ear.filename}/META-INF" file="@{additional.meta}" overwrite="true" />
 							</sequential>
 						</for>
 						<antcall target="-ear-pack">
@@ -254,17 +233,10 @@
 					<else>
 						<switch value="${appserver.type}">
 							<case value="jboss5">
-								<atg-assemble-ear dynamoroot="${dynamo.root}"
-									dynamoModules="${assembler.global.modules},${assembler.app.modules}"
-									destinationFile="${jboss5.deploy.dir}/${ear.filename}"
-									standalone="${assembler.standalone}" overwrite="${assembler.overwrite}"
-									liveConfig="${assembler.liveconfig}" jboss="false"
-									adddistributable="${assembler.distributable}" layer="${assembler.layers}"
-									prependjars="${assembler.prepend.jars}" />
+								<atg-assemble-ear dynamoroot="${dynamo.root}" dynamoModules="${assembler.global.modules},${assembler.app.modules}" destinationFile="${jboss5.deploy.dir}/${ear.filename}" standalone="${assembler.standalone}" overwrite="${assembler.overwrite}" liveConfig="${assembler.liveconfig}" jboss="false" adddistributable="${assembler.distributable}" layer="${assembler.layers}" prependjars="${assembler.prepend.jars}" />
 								<for list="${assembler.add.meta}" param="additional.meta">
 									<sequential>
-										<copy todir="${jboss5.deploy.dir}/${ear.filename}/META-INF"
-											file="@{additional.meta}" overwrite="true" />
+										<copy todir="${jboss5.deploy.dir}/${ear.filename}/META-INF" file="@{additional.meta}" overwrite="true" />
 									</sequential>
 								</for>
 								<antcall target="-ear-pack">
@@ -272,32 +244,19 @@
 								</antcall>
 							</case>
 							<case value="jboss6">
-								<atg-assemble-ear dynamoroot="${dynamo.root}"
-									dynamoModules="${assembler.global.modules},${assembler.app.modules}"
-									destinationFile="${jboss6.deploy.dir}/${ear.filename}"
-									standalone="${assembler.standalone}" overwrite="${assembler.overwrite}"
-									liveConfig="${assembler.liveconfig}" jboss="true"
-									adddistributable="${assembler.distributable}" layer="${assembler.layers}"
-									prependjars="${assembler.prepend.jars}" />
+								<atg-assemble-ear dynamoroot="${dynamo.root}" dynamoModules="${assembler.global.modules},${assembler.app.modules}" destinationFile="${jboss6.deploy.dir}/${ear.filename}" standalone="${assembler.standalone}" overwrite="${assembler.overwrite}" liveConfig="${assembler.liveconfig}" jboss="true" adddistributable="${assembler.distributable}" layer="${assembler.layers}" prependjars="${assembler.prepend.jars}" />
 								<touch file="${jboss6.deploy.dir}/${ear.filename}.dodeploy" />
 								<for list="${assembler.add.meta}" param="additional.meta">
 									<sequential>
-										<copy todir="${jboss6.deploy.dir}/${ear.filename}/META-INF"
-											file="@{additional.meta}" overwrite="true" />
+										<copy todir="${jboss6.deploy.dir}/${ear.filename}/META-INF" file="@{additional.meta}" overwrite="true" />
 									</sequential>
 								</for>
 							</case>
 							<case value="weblogic">
-								<atg-assemble-ear dynamoroot="${dynamo.root}"
-									dynamoModules="${assembler.global.modules},${assembler.app.modules}"
-									destinationFile="${weblogic.deploy.dir}/${ear.filename}"
-									standalone="${assembler.standalone}" overwrite="${assembler.overwrite}"
-									liveConfig="${assembler.liveconfig}" adddistributable="${assembler.distributable}"
-									layer="${assembler.layers}" prependjars="${assembler.prepend.jars}" />
+								<atg-assemble-ear dynamoroot="${dynamo.root}" dynamoModules="${assembler.global.modules},${assembler.app.modules}" destinationFile="${weblogic.deploy.dir}/${ear.filename}" standalone="${assembler.standalone}" overwrite="${assembler.overwrite}" liveConfig="${assembler.liveconfig}" adddistributable="${assembler.distributable}" layer="${assembler.layers}" prependjars="${assembler.prepend.jars}" />
 								<for list="${assembler.add.meta}" param="additional.meta">
 									<sequential>
-										<copy todir="${weblogic.deploy.dir}/${ear.filename}/META-INF"
-											file="@{additional.meta}" overwrite="true" />
+										<copy todir="${weblogic.deploy.dir}/${ear.filename}/META-INF" file="@{additional.meta}" overwrite="true" />
 									</sequential>
 								</for>
 								<antcall target="-ear-pack">
@@ -315,8 +274,7 @@
 	</target>
 
 
-	<target name="compile-java" depends="compile-java-gen"
-		description="Compiles all java classes in all java modules">
+	<target name="compile-java" depends="compile-java-gen" description="Compiles all java classes in all java modules">
 		<for list="${java.modules}" param="java.module">
 			<sequential>
 				<!-- Standard Java files -->
@@ -332,9 +290,7 @@
 					</targetfiles>
 					<sequential>
 						<mkdir dir="@{java.module}/classes" />
-						<javac srcdir="@{java.module}/src" destdir="@{java.module}/classes"
-							target="${javac.target.version}" source="${javac.source.version}"
-							debug="on" includeAntRuntime="false">
+						<javac srcdir="@{java.module}/src" destdir="@{java.module}/classes" target="${javac.target.version}" source="${javac.source.version}" debug="on" includeAntRuntime="false">
 							<classpath refid="java.classpath" />
 							<include name="**/*.java" />
 						</javac>
@@ -345,8 +301,7 @@
 							</fileset>
 						</copy>
 
-						<jar jarfile="@{java.module}/lib/classes.jar" basedir="@{java.module}/classes/"
-							includes="**" />
+						<jar jarfile="@{java.module}/lib/classes.jar" basedir="@{java.module}/classes/" includes="**" />
 					</sequential>
 				</outofdate>
 			</sequential>
@@ -356,8 +311,7 @@
 	</target>
 
 
-	<target name="-debug-classpath" if="build.debug"
-		description="Prints the java CLASSPATH property">
+	<target name="-debug-classpath" if="build.debug" description="Prints the java CLASSPATH property">
 
 		<pathconvert property="classpathProp" refid="java.classpath" />
 		<echo message="DEBUG: CLASSPATH=${classpathProp}" />
@@ -370,8 +324,7 @@
 		</if>
 	</target>
 
-	<target name="compile-java-gen"
-		description="Generates and compiles all generated java classes in all java modules">
+	<target name="compile-java-gen" description="Generates and compiles all generated java classes in all java modules">
 		<antcall target="-debug-classpath" />
 
 		<!-- WSDL/WADL based -->
@@ -394,8 +347,7 @@
 							<fileset dir="@{java.gen.module}/gen-src" includes="**/*" />
 							<fileset dir="@{java.gen.module}/gen-classes" includes="**/*" />
 							<fileset dir="@{java.gen.module}/gen-test-src" includes="**/*" />
-							<fileset dir="@{java.gen.module}/gen-test-reports"
-								includes="**/*" />
+							<fileset dir="@{java.gen.module}/gen-test-reports" includes="**/*" />
 						</delete>
 
 						<for param="wadl">
@@ -413,8 +365,7 @@
 								<pathconvert targetos="unix" property="wadl.dir.unix">
 									<path location="@{wadl}" />
 								</pathconvert>
-								<propertyregex property="wadl.dir" input="${wadl.dir.unix}"
-									regexp="resources/(.*)/.*\.wadl$" select="\1" />
+								<propertyregex property="wadl.dir" input="${wadl.dir.unix}" regexp="resources/(.*)/.*\.wadl$" select="\1" />
 								<var name="wadl.dir.unix" unset="true" />
 
 								<!-- Handle special cases by path -->
@@ -436,8 +387,7 @@
 										<isset property="package" />
 									</not>
 									<then>
-										<echo
-											message="WARNING: No package mapped for ${wadl.dir}/${filename}, using .services.misc" />
+										<echo message="WARNING: No package mapped for ${wadl.dir}/${filename}, using .services.misc" />
 										<property name="package" value="svm.services.misc" />
 									</then>
 								</if>
@@ -447,12 +397,9 @@
 								<!-- The wjc ant task takes the wadl filename in as a relative unix-style 
 									path from ant.basedir -->
 								<property name="wadl.rel" value="@{wadl}" relative="yes" />
-								<propertyregex property="wadl.rel.fixed" input="${wadl.rel}"
-									regexp="\\" replace="/" global="true" defaultValue="${wadl.rel}" />
+								<propertyregex property="wadl.rel.fixed" input="${wadl.rel}" regexp="\\" replace="/" global="true" defaultValue="${wadl.rel}" />
 
-								<wjc description="${wadl.rel.fixed}" package="${package}"
-									generationstyle="jaxrs20" autoSchemaPackage="true"
-									target="@{java.gen.module}/gen-src">
+								<wjc description="${wadl.rel.fixed}" package="${package}" generationstyle="jaxrs20" autoSchemaPackage="true" target="@{java.gen.module}/gen-src">
 								</wjc>
 
 								<var name="wadl.rel.fixed" unset="true" />
@@ -478,8 +425,7 @@
 								<pathconvert targetos="unix" property="wsdl.dir.unix">
 									<path location="@{wsdl}" />
 								</pathconvert>
-								<propertyregex property="wsdl.dir" input="${wsdl.dir.unix}"
-									regexp="resources/(.*)/.*\.wsdl$" select="\1" />
+								<propertyregex property="wsdl.dir" input="${wsdl.dir.unix}" regexp="resources/(.*)/.*\.wsdl$" select="\1" />
 								<var name="wsdl.dir.unix" unset="true" />
 
 								<!-- Handle special cases by path -->
@@ -509,8 +455,7 @@
 										<isset property="package" />
 									</not>
 									<then>
-										<echo
-											message="WARNING: No package mapped for ${wsdl.dir}/${filename}, using .services.misc" />
+										<echo message="WARNING: No package mapped for ${wsdl.dir}/${filename}, using .services.misc" />
 										<property name="package" value="svm.services.misc" />
 									</then>
 								</if>
@@ -519,8 +464,7 @@
 
 								<java classname="org.apache.axis2.wsdl.WSDL2Java" fork="true">
 									<classpath refid="axis2.classpath" />
-									<jvmarg
-										value="-Dlog4j.configuration=file:///${axis2.home}/conf/log4j.properties" />
+									<jvmarg value="-Dlog4j.configuration=file:///${axis2.home}/conf/log4j.properties" />
 									<arg value="--noBuildXML" />
 									<arg value="-uri" />
 									<arg file="@{wsdl}" />
@@ -543,17 +487,14 @@
 
 								<!-- Move generated test classes to the gen-test-src dir -->
 								<move todir="@{java.gen.module}/gen-test-src">
-									<fileset dir="@{java.gen.module}/gen-src/test"
-										includes="**/*" />
+									<fileset dir="@{java.gen.module}/gen-src/test" includes="**/*" />
 								</move>
-								<delete dir="@{java.gen.module}/gen-src/test" quiet="true"
-									includeEmptyDirs="true" />
+								<delete dir="@{java.gen.module}/gen-src/test" quiet="true" includeEmptyDirs="true" />
 
 								<!-- Override any generated source that we had to 'fix' to get to 
 									compile -->
 								<copy todir="@{java.gen.module}/gen-src" overwrite="true">
-									<fileset dir="@{java.gen.module}/gen-src-override"
-										includes="**/*" />
+									<fileset dir="@{java.gen.module}/gen-src-override" includes="**/*" />
 								</copy>
 
 								<var name="binding" unset="true" />
@@ -565,23 +506,19 @@
 
 						<mkdir dir="@{java.gen.module}/gen-classes" />
 
-						<javac srcdir="@{java.gen.module}/gen-src" destdir="@{java.gen.module}/gen-classes"
-							target="${javac.target.version}" source="${javac.source.version}"
-							debug="on" includeAntRuntime="false">
+						<javac srcdir="@{java.gen.module}/gen-src" destdir="@{java.gen.module}/gen-classes" target="${javac.target.version}" source="${javac.source.version}" debug="on" includeAntRuntime="false">
 							<classpath refid="java.classpath" />
 							<include name="**/*.java" />
 						</javac>
 
-						<copy todir="@{java.gen.module}/gen-classes"
-							preservelastmodified="true">
+						<copy todir="@{java.gen.module}/gen-classes" preservelastmodified="true">
 							<fileset dir="@{java.gen.module}/gen-src">
 								<patternset refid="resource.files" />
 								<include name="**/*.class" />
 							</fileset>
 						</copy>
 
-						<jar jarfile="@{java.gen.module}/lib/gen-classes.jar" basedir="@{java.gen.module}/gen-classes/"
-							includes="**" />
+						<jar jarfile="@{java.gen.module}/lib/gen-classes.jar" basedir="@{java.gen.module}/gen-classes/" includes="**" />
 					</sequential>
 				</outofdate>
 			</sequential>
@@ -609,8 +546,7 @@
 					<sequential>
 						<echo message="Generating @{schema.dir}" />
 
-						<xmlbean srcgendir="${xmlbeans.dto.src.dir}" classgendir="${xmlbeans.dto.classes.dir}"
-							classpathref="java.classpath" failonerror="true">
+						<xmlbean srcgendir="${xmlbeans.dto.src.dir}" classgendir="${xmlbeans.dto.classes.dir}" classpathref="java.classpath" failonerror="true">
 							<fileset dir="@{schema.dir}">
 								<include name="*.xsd" />
 							</fileset>
@@ -624,8 +560,7 @@
 					</sequential>
 				</for>
 
-				<jar jarfile="${xmlbeans.dto.classes.jar}" basedir="${xmlbeans.dto.classes.dir}"
-					includes="**" />
+				<jar jarfile="${xmlbeans.dto.classes.jar}" basedir="${xmlbeans.dto.classes.dir}" includes="**" />
 			</sequential>
 		</outofdate>
 
@@ -638,8 +573,7 @@
 	</target>
 
 
-	<target name="clean-java" depends="-init"
-		description="Cleans all java classes in all java modules">
+	<target name="clean-java" depends="-init" description="Cleans all java classes in all java modules">
 		<for list="${java.modules}" param="java.module">
 			<sequential>
 				<delete quiet="true" includeEmptyDirs="true">
@@ -654,10 +588,8 @@
 		<antcall target="-eclipse-refresh" />
 	</target>
 
-	<target name="deploy-atg-modules" depends="compile-java"
-		description="Copy the ATG module to DYNAMO_ROOT">
-		<copy todir="${dynamo.root}/MyDomain" preservelastmodified="true"
-			overwrite="false">
+	<target name="deploy-atg-modules" depends="compile-java" description="Copy the ATG module to DYNAMO_ROOT">
+		<copy todir="${dynamo.root}/MyDomain" preservelastmodified="true" overwrite="false">
 			<fileset dir="${module.prefix}">
 				<patternset refid="atg.module.files" />
 				<exclude name="**/j2ee-apps/**/*.weblogic" />
@@ -666,8 +598,7 @@
 		<!-- Fix up appserver-specific files, if required -->
 		<switch value="${appserver.type}">
 			<case value="weblogic">
-				<copy todir="${dynamo.root}/MyDomain" preservelastmodified="true"
-					overwrite="true">
+				<copy todir="${dynamo.root}/MyDomain" preservelastmodified="true" overwrite="true">
 					<fileset dir="${module.prefix}">
 						<include name="**/j2ee-apps/**/*.weblogic" />
 					</fileset>
@@ -678,8 +609,7 @@
 		</switch>
 	</target>
 
-	<target name="copy-atg-configs"
-		description="Copy ATG configuration files to deploy folder of server instances">
+	<target name="copy-atg-configs" description="Copy ATG configuration files to deploy folder of server instances">
 		<if>
 			<istrue value="${deploy.server.configs}" />
 			<then>
@@ -696,5 +626,30 @@
 				</for>
 			</then>
 		</if>
+	</target>
+
+
+	<target name="deploy-jsps" description="Copy the WAR contents from Eclipse to the deployed EAR">
+		<echo message="To:${jboss6.deploy.dir}/${ear.filename}" />
+		<switch value="${appserver.type}">
+			<case value="jboss6">
+				<for list="${jboss6.dev.hack.external.deploy.directories}" param="external.deploy.dir">
+					<sequential>
+						<echo message="From:${basedir}/@{external.deploy.dir}" />
+						<copy todir="${jboss6.deploy.dir}/${ear.filename}" preservelastmodified="true" overwrite="false">
+							<fileset dir="${basedir}/@{external.deploy.dir}">
+								<include name="*.war/**/*" />
+							</fileset>
+						</copy>
+					</sequential>
+				</for>
+			</case>
+			<default />
+		</switch>
+	</target>
+
+	<target name="print-version">
+		<echo>Java/JVM version: ${ant.java.version}</echo>
+		<echo>Java/JVM detail version: ${java.version}</echo>
 	</target>
 </project>
