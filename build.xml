@@ -652,4 +652,22 @@
 		<echo>Java/JVM version: ${ant.java.version}</echo>
 		<echo>Java/JVM detail version: ${java.version}</echo>
 	</target>
+
+
+	<target name="-deploy-jsps" description="Copy the WAR contents from Eclipse to the deployed EAR">
+		<switch value="${appserver.type}">
+			<case value="jboss6">
+				<for list="${jboss6.dev.hack.external.deploy.directories}" param="external.deploy.dir">
+					<sequential>
+						<copy todir="${jboss6.deploy.dir}/${ear.filename}" preservelastmodified="true" overwrite="false">
+							<fileset dir="${basedir}/@{external.deploy.dir}">
+								<include name="*.war/**/*" />
+							</fileset>
+						</copy>
+					</sequential>
+				</for>
+			</case>
+			<default />
+		</switch>
+	</target>
 </project>
