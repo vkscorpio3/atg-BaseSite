@@ -137,7 +137,7 @@
                     </security>
                 </datasource>
                 <datasource jta="true" jndi-name="java:/ATGProductionDS1" pool-name="ATGCore1" enabled="true" use-ccm="false">
-                    <connection-url>jdbc:oracle:thin:@localhost:1521:ATGDB</connection-url>
+                    <connection-url>jdbc:oracle:thin:@10.0.0.6:1521:ATGDB</connection-url>
                     <driver>oracle</driver>
                     <security>
                         <user-name>CORE</user-name>
@@ -145,7 +145,7 @@
                     </security>
                 </datasource>
                 <datasource jta="true" jndi-name="java:/ATGPublishingDS1" pool-name="ATGPub1" enabled="true" use-ccm="false">
-                    <connection-url>jdbc:oracle:thin:@localhost:1521:ATGDB</connection-url>
+                    <connection-url>jdbc:oracle:thin:@10.0.0.6:1521:ATGDB</connection-url>
                     <driver>oracle</driver>
                     <security>
                         <user-name>PUB</user-name>
@@ -153,7 +153,7 @@
                     </security>
                 </datasource>
                 <datasource jta="true" jndi-name="java:/ATGStagingDS" pool-name="ATGStage" enabled="true" use-ccm="false">
-                    <connection-url>jdbc:oracle:thin:@localhost:1521:ATGDB</connection-url>
+                    <connection-url>jdbc:oracle:thin:@10.0.0.6:1521:ATGDB</connection-url>
                     <driver>oracle</driver>
                     <security>
                         <user-name>STAGE</user-name>
@@ -161,7 +161,7 @@
                     </security>
                 </datasource>
                 <datasource jta="true" jndi-name="java:/ATGSwitchingDS_A" pool-name="ATGCatA" enabled="true" use-ccm="false">
-                    <connection-url>jdbc:oracle:thin:@localhost:1521:ATGDB</connection-url>
+                    <connection-url>jdbc:oracle:thin:@10.0.0.6:1521:ATGDB</connection-url>
                     <driver>oracle</driver>
                     <security>
                         <user-name>CATA</user-name>
@@ -169,7 +169,7 @@
                     </security>
                 </datasource>
                 <datasource jta="true" jndi-name="java:/ATGSwitchingDS_B" pool-name="ATGCatB" enabled="true" use-ccm="false">
-                    <connection-url>jdbc:oracle:thin:@localhost:1521:ATGDB</connection-url>
+                    <connection-url>jdbc:oracle:thin:@10.0.0.6:1521:ATGDB</connection-url>
                     <driver>oracle</driver>
                     <security>
                         <user-name>CATB</user-name>
@@ -178,7 +178,7 @@
                 </datasource>
                 <xa-datasource jndi-name="java:/ATGProductionDS" pool-name="java:/ATGProductionDS" enabled="true" use-java-context="true">
                     <xa-datasource-property name="URL">
-                        jdbc:oracle:thin:@localhost:1521:ATGDB
+                        jdbc:oracle:thin:@10.0.0.6:1521:ATGDB
                     </xa-datasource-property>
                     <xa-datasource-property name="User">
                         CORE
@@ -209,7 +209,7 @@
                 </xa-datasource>
                 <xa-datasource jndi-name="java:/ATGPublishingDS" pool-name="java:/ATGPublishingDS" enabled="true" use-java-context="true">
                     <xa-datasource-property name="URL">
-                        jdbc:oracle:thin:@localhost:1521:ATGDB
+                        jdbc:oracle:thin:@10.0.0.6:1521:ATGDB
                     </xa-datasource-property>
                     <xa-datasource-property name="User">
                         PUB
