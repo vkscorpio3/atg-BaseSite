@@ -5,7 +5,7 @@
 <head>
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript" src="../resources/js/base.js"></script>
+<script type="text/javascript" src="/static-domain/resources/js/base.js"></script>
 </head>
 
 <body>

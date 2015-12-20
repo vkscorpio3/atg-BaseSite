@@ -26,4 +26,5 @@
 			%>
 		</ul><%=rootContext.getAbsolutePath()%>
 	</div>
+	<img src="/static-domain/resources/images/random.jpg"/>
 </dsp:page>

@@ -54,7 +54,6 @@ public class MyAccountDroplet extends DynamoServlet {
 		pRequest.setParameter("myAccount", testDemo);
 		pRequest.setParameter("myAccountHash", myAccountTest);
 		pRequest.serviceParameter("output", pRequest, pResponse);
-		return;
 	}
 
 	public TestDemo testDemo;
