@@ -629,19 +629,17 @@
 	</target>
 
 
-	
+
 	<target name="print-version">
 		<echo>Java/JVM version: ${ant.java.version}</echo>
 		<echo>Java/JVM detail version: ${java.version}</echo>
 	</target>
 
 	<target name="deploy-jsps" description="Copy the WAR contents from Eclipse to the deployed EAR">
-		<echo message="To:${jboss6.deploy.dir}/${ear.filename}" />
 		<switch value="${appserver.type}">
 			<case value="jboss6">
 				<for list="${jboss6.dev.hack.external.deploy.directories}" param="external.deploy.dir">
 					<sequential>
-						<echo message="From:${basedir}/@{external.deploy.dir}" />
 						<copy todir="${jboss6.deploy.dir}/${ear.filename}" preservelastmodified="true" overwrite="false">
 							<fileset dir="${basedir}/@{external.deploy.dir}">
 								<include name="*.war/**/*" />

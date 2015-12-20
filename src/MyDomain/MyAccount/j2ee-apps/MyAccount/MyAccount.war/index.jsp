@@ -7,15 +7,29 @@
 			<%
 				File rootContext = new File(this.getServletContext().getRealPath(""));
 
-					String[] listFiles = rootContext.list();
+					File[] listFiles = rootContext.listFiles();
 					int i = 0;
-					for (String fileName : listFiles) {
-						if (fileName.endsWith("jsp")) {
+					for (File fileName : listFiles) {
+						if (fileName.getName().endsWith("jsp")) {
 							i++;
 			%>
-			<li><a href="./<%=fileName%>" class="arrow"> # <%=fileName%></a></li>
+			<li><a href="./<%=fileName.getName()%>" class="arrow"> # <%=fileName.getName()%></a></li>
+			<%
+				} else {
+							if (fileName.isDirectory()) {
+								File[] directory = fileName.listFiles();
+								for (File fileInName : directory) {
+									if (fileInName.getName().endsWith("jsp")) {
+										i++;
+			%>
+			<li><a
+				href="./<%=fileName.getName()%>/<%=fileInName.getName()%>"
+				class="arrow"> # <%=fileName.getName()%>/<%=fileInName.getName()%></a></li>
 			<%
 				}
+								}
+							}
+						}
 					}
 
 					if (!(i % 2 == 0)) {
@@ -26,5 +40,5 @@
 			%>
 		</ul><%=rootContext.getAbsolutePath()%>
 	</div>
-	<img src="/static-domain/resources/images/random.jpg"/>
+	<img src="/static-domain/resources/images/random.jpg" />
 </dsp:page>
