@@ -5,7 +5,8 @@ jboss-admin:Amogh*123/weblogic1(fly)
 
 C:\opt\JBoss\wildfly-8.2.0.Final\modules\com\oracle\jdbc\main\ojdbc6.jar
 Merchandising User (login: merchandising): merchandising:Admin123
-BCC: Publishing Admin User (login: admin): admin:Admin123
+Acer BCC: Publishing Admin User (login: admin): admin:Admin123
+DELL BCC: Publishing Admin User (login: admin): admin:Admin123
 
 
 ATGPublishingDS
@@ -29,4 +30,4 @@ BCC Instance:
 Program Arguments:
 -mp "C:/opt/JBoss/jboss-eap-6.1/modules" -jaxpmodule javax.xml.jaxp-provider org.jboss.as.standalone -b 10.0.0.7 --server-config=standalone.bcc.xml -Djboss.server.base.dir=C:\opt\JBoss\jboss-eap-6.1\standalone
 VM Arguments:
-"-Dprogram.name=JBossTools: WildFly8.2" -server -Xms512m -Xmx1024m -XX:MaxPermSize=256m -Dorg.jboss.resolver.warning=true -Djava.net.preferIPv4Stack=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true "-Dorg.jboss.boot.log.file=C:/opt/JBoss/jboss-eap-6.1/standalone/log/boot.log" "-Dlogging.configuration=file:/C:/opt/JBoss/jboss-eap-6.1/standalone/configuration/logging.properties" "-Djboss.home.dir=C:/opt/JBoss/jboss-eap-6.1" -Dorg.jboss.logmanager.nocolor=false -Djboss.bind.address.management=10.0.0.7 -Datg.dynamo.modules=MyDomain.MyAccount.Versioned,BIZUI,PubPortlet -Datg.dynamo.server.name=JBOSSSM -Djava.rmi.server.hostname=127.0.0.1
+"-Dprogram.name=JBossTools: WildFly8.2" -server -Xms512m -Xmx1024m -XX:MaxPermSize=256m -Dorg.jboss.resolver.warning=true -Djava.net.preferIPv4Stack=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true "-Dorg.jboss.boot.log.file=C:/opt/JBoss/jboss-eap-6.1/standalone/log/boot.log" "-Dlogging.configuration=file:/C:/opt/JBoss/jboss-eap-6.1/standalone/configuration/logging.bcc.properties" "-Djboss.home.dir=C:/opt/JBoss/jboss-eap-6.1" -Dorg.jboss.logmanager.nocolor=false -Djboss.bind.address.management=10.0.0.7 -Datg.dynamo.modules=MyDomain.MyAccount.Versioned,BIZUI,PubPortlet -Datg.dynamo.server.name=JBOSSSM -Djava.rmi.server.hostname=127.0.0.1
