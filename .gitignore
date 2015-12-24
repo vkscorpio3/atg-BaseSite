@@ -5,6 +5,6 @@ gen-classes/
 class/
 gen-classes/
 gen-src/
-lib/classes.jar
-lib/gen-classes.jar
-lib/gen-dto-classes.jar
+**/lib/classes.jar
+**/lib/gen-classes.jar
+**/lib/gen-dto-classes.jar
