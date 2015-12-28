@@ -50,12 +50,19 @@ CREATE TABLE atg_user_customer
   CONSTRAINT atg_user_customer_id_fk FOREIGN KEY (id) REFERENCES atg_customer (id),
   CONSTRAINT atg_user_customer_user_id_fk FOREIGN KEY (user_id) REFERENCES dps_user (id)
 );
-
-
-
+-- PUB
+drop table ATG_MESSAGES;
 CREATE TABLE ATG_MESSAGES 
 (
-  ID INT NOT NULL 
+ASSET_VERSION                   NUMBER(19)      NOT NULL,
+    WORKSPACE_ID                    VARCHAR2(40)    NOT NULL,
+    BRANCH_ID                       VARCHAR2(40)    NOT NULL,
+    IS_HEAD                         NUMBER(1)       NOT NULL,
+    VERSION_DELETED                 NUMBER(1)       NOT NULL,
+    VERSION_EDITABLE                NUMBER(1)       NOT NULL,
+    PRED_VERSION                    NUMBER(19)      NULL,
+    CHECKIN_DATE                    TIMESTAMP       NULL,
+  ID VARCHAR2(40) NOT NULL 
 , APPLICATION VARCHAR2(20) 
 , MSGLEVEL VARCHAR2(20) 
 , MESSAGE_KEY VARCHAR2(20) 
@@ -63,7 +70,24 @@ CREATE TABLE ATG_MESSAGES
 , STATUS NUMBER(1) 
 , CONSTRAINT ATG_MESSAGES_PK PRIMARY KEY 
   (
-    ID 
+    ID,ASSET_VERSION
   )
   ENABLE 
 );
+-- CORE/CATA/CATB
+drop table ATG_MESSAGES;
+CREATE TABLE ATG_MESSAGES 
+(
+  ID VARCHAR2(40) NOT NULL 
+, APPLICATION VARCHAR2(20) 
+, MSGLEVEL VARCHAR2(20) 
+, MESSAGE_KEY VARCHAR2(20) 
+, MESSAGE VARCHAR2(150) 
+, STATUS NUMBER(1) 
+, CONSTRAINT ATG_MESSAGES_PK PRIMARY KEY 
+  (
+    ID
+  )
+  ENABLE 
+);
+/

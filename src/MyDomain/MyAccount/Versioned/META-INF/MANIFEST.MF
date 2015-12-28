@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+ATG-Config-Path: config/
+ATG-Required: BIZUI PubPortlet Publishing.base PublishingAgent MyDomain.common MyDomain.common.Versioned SiteAdmin.Versioned AssetUI DCS.Versioned DCS.DynamicCustomCatalogs.Versioned DAS.Versioned DCS-UI.SiteAdmin.Versioned
+ATG-Required-If-Present: DCS-UI SiteAdmin.Versioned

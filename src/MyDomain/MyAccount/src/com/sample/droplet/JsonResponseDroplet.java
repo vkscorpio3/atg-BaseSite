@@ -93,10 +93,6 @@ public class JsonResponseDroplet extends DynamoServlet {
 		userDetail.setRelation("Wife");
 		userMap.add(userDetail);
 		userDetail = new UserDetail();
-		userDetail.setName("Pallavi");
-		userDetail.setAge("28");
-		userDetail.setRelation("SIL");
-		userMap.add(userDetail);
 
 		try {
 			RepositoryItem messageItem = getMessageRepository().getItem("1");
